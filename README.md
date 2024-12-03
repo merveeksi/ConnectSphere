@@ -1,2 +1,1 @@
-# ConnectSphere
-Özgün Projem
+# Yeni Projem
