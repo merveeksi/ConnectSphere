@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3E372D80-13D8-4E81-BD06-A7BD195BD076}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CC5E7449-CB17-4F93-A8AF-95C375375CF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectSphere.Domain", "src\ConnectSphere.Domain\ConnectSphere.Domain.csproj", "{98A2D281-E670-4ECA-A835-5D3DBA5BD7B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{98A2D281-E670-4ECA-A835-5D3DBA5BD7B0} = {3E372D80-13D8-4E81-BD06-A7BD195BD076}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98A2D281-E670-4ECA-A835-5D3DBA5BD7B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A2D281-E670-4ECA-A835-5D3DBA5BD7B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A2D281-E670-4ECA-A835-5D3DBA5BD7B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A2D281-E670-4ECA-A835-5D3DBA5BD7B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
