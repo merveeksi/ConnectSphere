@@ -3,6 +3,7 @@ using ConnectSphere.Domain.Enums;
 
 namespace ConnectSphere.Domain.Entities;
 
+//sealed: Bu sınıftan kalıtım alınamaz, türetemezsin.
 public sealed class Group : EntityBase<long>
 {
     public string GroupName { get; set; } // Grup adı
