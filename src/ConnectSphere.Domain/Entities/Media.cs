@@ -13,19 +13,52 @@ public sealed class Media : EntityBase<long>
 
     // Navigations
     public User UploadedBy { get; set; }
-}
 
-public static Media Create(long uploadedById, string url, string mediaType)
-{
-    var media = new Media
+    private const long MaxFileSize = 5 * 1024 * 1024; // 5 MB
+    private static readonly string[] AllowedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".mp4", ".avi" }; // İzin verilen uzantılar
+
+    public static Media Create(long uploadedById, string url, string mediaType, long fileSize)
     {
-        Id = TsidCreator.GetTsid().ToLong(),
-        UploadedById = uploadedById,
-        Url = url,
-        MediaType = mediaType,
-        UploadedAt = DateTime.UtcNow
-    };
+        ValidateMedia(fileSize, mediaType);
 
-    media.RaiseDomainEvent(new MediaUploadedDomainEvent(media.Id, media.Url));
-    return media;
+        var media = new Media
+        {
+            Id = TsidCreator.GetTsid().ToLong(),
+            UploadedById = uploadedById,
+            Url = url,
+            MediaType = mediaType,
+            UploadedAt = DateTime.UtcNow
+        };
+
+        media.RaiseDomainEvent(new MediaUploadedDomainEvent(media));
+
+        return media;
+    }
+
+    private static void ValidateMedia(long fileSize, string mediaType) // Medya dosyasının geçerli olup olmadığını kontrol eder
+    {
+        if (fileSize > MaxFileSize)
+            throw new ArgumentException($"File size cannot exceed {MaxFileSize / (1024 * 1024)} MB.", nameof(fileSize));
+
+        if (!IsValidMediaType(mediaType))
+            throw new ArgumentException("Invalid media type.", nameof(mediaType));
+    }
+
+    private static bool IsValidMediaType(string mediaType) // Medya türünün geçerli olup olmadığını kontrol eder
+    {
+        return AllowedExtensions.Any(ext => mediaType.EndsWith(ext, StringComparison.OrdinalIgnoreCase));
+    }
+    
+    public void Update(long uploadedById, string url, string mediaType)
+    {
+        UploadedById = uploadedById;
+        Url = url;
+        MediaType = mediaType;
+    }
+    
+    public void Delete()
+    {
+        RaiseDomainEvent(new MediaDeletedDomainEvent(this));
+    }
+    
 }

@@ -1,11 +1,8 @@
-using System.Text.RegularExpressions;
 using ConnectSphere.Domain.Common.Entities;
 using ConnectSphere.Domain.DomainEvents;
-using ConnectSphere.Domain.Entities;
 using TSID.Creator.NET;
-using Group = System.Text.RegularExpressions.Group;
 
-namespace ConnectSphere.Domain.Enums;
+namespace ConnectSphere.Domain.Entities;
 
 public sealed class Message : EntityBase<long>
 {
@@ -20,20 +17,44 @@ public sealed class Message : EntityBase<long>
     public User Receiver { get; set; }
     public long? GroupId { get; set; } // Grup ID (null ise birebir mesajdır)
     public Group Group { get; set; }
-}
 
-public static Message Create(long senderId, long receiverId, string content)
-{
-    var message = new Message
+    public static Message Create(long senderId, long? receiverId, string content)
     {
-       Id = TsidCreator.GetTsid().ToLong(),
-        SenderId = senderId,
-        ReceiverId = receiverId,
-        Content = content,
-        SentAt = DateTime.UtcNow,
-        IsRead = false
-    };
+        ValidateContent(content);
 
-    message.RaiseDomainEvent(new MediaUploadedDomainEvent(message.Id, message.Content));
-    return message;
+        var message = new Message
+        {
+            Id = TsidCreator.GetTsid().ToLong(),
+            SenderId = senderId,
+            ReceiverId = receiverId,
+            Content = content,
+            SentAt = DateTime.UtcNow,
+            IsRead = false
+        };
+        
+        message.RaiseDomainEvent(new MessageSentDomainEvent(message));
+        
+        return message;
+    }
+
+    public void MarkAsRead() // Mesajı okundu olarak işaretleme
+    {
+        IsRead = true;
+    }
+    
+    public void Create() // Mesajı oluşturma
+    {
+        RaiseDomainEvent(new MessageCreatedDomainEvent(this));
+    }
+
+    public void Delete() // Mesajı silme
+    {
+        RaiseDomainEvent(new MessageDeletedDomainEvent(this));
+    }
+
+    private static void ValidateContent(string content) // Mesaj içeriğini doğrulama
+    {
+        if (string.IsNullOrWhiteSpace(content))
+            throw new ArgumentException("Message content cannot be empty.", nameof(content));
+    }
 }

@@ -33,7 +33,7 @@ public record FullName
 
         var parts = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-        if (parts.Length != 2)
+        if (parts.Length != 2 || parts.Length != 3)
             throw new ArgumentException("Invalid full name format. Expected 'FirstName LastName'.");
 
         string firstName = parts[0];

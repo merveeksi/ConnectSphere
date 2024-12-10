@@ -1,3 +1,4 @@
+using ConnectSphere.Domain.Common.Events;
 using ConnectSphere.Domain.DomainEvents;
 
 namespace ConnectSphere.Domain.Common.Entities
@@ -16,7 +17,7 @@ namespace ConnectSphere.Domain.Common.Entities
     
     private readonly List<IDomainEvent> _domainEvents = [];
     public IReadOnlyList<IDomainEvent> GetDomainEvents() => _domainEvents.AsReadOnly();
-    public void RaiseDomainEvent(MediaUploadedDomainEvent domainEvent) => _domainEvents.Add(domainEvent);
+    public void RaiseDomainEvent(IDomainEvent domainEvent) => _domainEvents.Add(domainEvent);
     public void ClearDomainEvents() => _domainEvents.Clear();
     }
    
