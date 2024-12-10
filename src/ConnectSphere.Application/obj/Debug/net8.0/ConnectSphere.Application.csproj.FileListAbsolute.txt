@@ -1,0 +1,6 @@
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.csproj.AssemblyReference.cache
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.AssemblyInfoInputs.cache
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.AssemblyInfo.cs
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.csproj.CoreCompileInputs.cache
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.sourcelink.json

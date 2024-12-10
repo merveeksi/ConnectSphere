@@ -10,4 +10,20 @@
       <ProjectReference Include="..\ConnectSphere.Domain\ConnectSphere.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.4.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Features\Groups\Queries\" />
+      <Folder Include="Features\LiveStreams\Commands\Create\" />
+      <Folder Include="Features\LiveStreams\Queries\" />
+      <Folder Include="Features\Medias\Queries\" />
+      <Folder Include="Features\Messages\Queries\" />
+      <Folder Include="Features\Notifications\Queries\" />
+      <Folder Include="Features\Users\Commands\Create\" />
+      <Folder Include="Features\Users\Queries\" />
+    </ItemGroup>
+
 </Project>

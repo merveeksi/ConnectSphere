@@ -21,7 +21,7 @@ public sealed class User : EntityBase<long>
     public ICollection<Group> Groups { get; private set; } = new List<Group>();
     public ICollection<Notification> Notifications { get; private set; } = new List<Notification>();
 
-    public static User Create(UserName username, FullName fullname, Email email, string password, string profilePictureUrl)
+    public static User Create(UserName username, FullName fullname, Email email, PasswordHash passwordHash, string profilePictureUrl, string role)
     {
         if (username == null) 
             throw new ArgumentNullException(nameof(username));
@@ -29,10 +29,12 @@ public sealed class User : EntityBase<long>
             throw new ArgumentNullException(nameof(fullname));
         if (email == null) 
             throw new ArgumentNullException(nameof(email));
-        if (string.IsNullOrWhiteSpace(password))
-            throw new ArgumentException("Password cannot be empty.", nameof(password));
+        if (passwordHash == null)
+            throw new ArgumentNullException(nameof(PasswordHash));
         if (string.IsNullOrWhiteSpace(profilePictureUrl))
             throw new ArgumentException("Profile picture URL cannot be empty.", nameof(profilePictureUrl));
+        if (string.IsNullOrWhiteSpace(role))
+            throw new ArgumentException("Role cannot be empty.", nameof(role));
 
         var user = new User()
         {
@@ -40,7 +42,7 @@ public sealed class User : EntityBase<long>
             Username = username,
             FullName = fullname,
             Email = email,
-            PasswordHash = PasswordHash.Create(password),
+            PasswordHash = passwordHash,
             ProfilePictureUrl = profilePictureUrl,
             CreatedAt = DateTime.UtcNow,
             IsActive = true,

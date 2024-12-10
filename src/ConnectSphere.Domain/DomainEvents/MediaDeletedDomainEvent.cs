@@ -3,7 +3,6 @@ using ConnectSphere.Domain.Entities;
 
 namespace ConnectSphere.Domain.DomainEvents;
 
-public record MediaDeletedDomainEvent(Media Media) : IDomainEvent
+public record MediaDeletedDomainEvent(Media MediaId) : IDomainEvent
 {
-    
 }

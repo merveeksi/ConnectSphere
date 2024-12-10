@@ -3,7 +3,7 @@ using ConnectSphere.Domain.Entities;
 
 namespace ConnectSphere.Domain.DomainEvents;
 
-public record NotificationDeletedDomainEvent(Notification Notification) : IDomainEvent
+public record NotificationDeletedDomainEvent(long NotificationId) : IDomainEvent
 {
     
 }

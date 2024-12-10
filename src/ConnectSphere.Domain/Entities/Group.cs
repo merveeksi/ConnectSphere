@@ -22,7 +22,7 @@ public sealed class Group : EntityBase<long>
         Id = TsidCreator.GetTsid().ToLong();
     }
     
-    public static Group Create(GroupName groupName, User createdBy)
+    public static Group Create(GroupName groupName, long createdBy)
     {
         if (groupName == null) 
             throw new ArgumentNullException(nameof(groupName));
@@ -31,14 +31,13 @@ public sealed class Group : EntityBase<long>
 
         var group = new Group
         {
+            Id = TsidCreator.GetTsid().ToLong(),
             GroupName = groupName,
             CreatedAt = DateTime.UtcNow,
-            CreatedById = createdBy.Id,
-            CreatedBy = createdBy
+            CreatedById = createdBy
         };
         
-        group.RaiseDomainEvent(new GroupCreatedDomainEvent(group));
-
+        group.RaiseDomainEvent(new GroupCreatedDomainEvent(group.Id));
         return group;
     }
 

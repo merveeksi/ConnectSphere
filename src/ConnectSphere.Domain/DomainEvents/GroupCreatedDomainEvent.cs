@@ -3,7 +3,7 @@ using ConnectSphere.Domain.Entities;
 
 namespace ConnectSphere.Domain.DomainEvents;
 
-public record GroupCreatedDomainEvent(Group Group) : IDomainEvent
+public record GroupCreatedDomainEvent(long GroupId) : IDomainEvent
 {
     
 }

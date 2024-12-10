@@ -3,4 +3,4 @@ using ConnectSphere.Domain.Entities;
 
 namespace ConnectSphere.Domain.DomainEvents;
 
-public record MessageDeletedDomainEvent(Message Message) : IDomainEvent;
+public record MessageDeletedDomainEvent(Message MessageId) : IDomainEvent;

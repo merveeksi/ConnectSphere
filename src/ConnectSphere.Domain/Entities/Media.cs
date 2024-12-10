@@ -60,5 +60,10 @@ public sealed class Media : EntityBase<long>
     {
         RaiseDomainEvent(new MediaDeletedDomainEvent(this));
     }
-    
+
+    //Anlam veremediğim bir şekilde tekrardan ekliyor. Hatamı bulamadım.
+    public static Media Create(long requestUploadedById, string requestUrl, string requestMediaType)
+    {
+        throw new NotImplementedException();
+    }
 }
