@@ -1,31 +1,36 @@
 using ConnectSphere.Domain.Common.Entities;
+using ConnectSphere.Domain.ValueObjects;
 using TSID.Creator.NET;
 
 namespace ConnectSphere.Domain.Entities;
 
 public sealed class User : EntityBase<long>
 {
-    public string Username { get; set; }
-    public string Email { get; set; }
-    public string PasswordHash { get; set; }
-    public string ProfilePictureUrl { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public DateTime? LastLoginAt { get; set; }
-    public string Role { get; set; }
-    public bool IsActive { get; set; }
+    public UserName Username { get; private set; }
+    public FullName FullName { get; private set; }
+    public Email Email { get; private set; }
+    public PasswordHash PasswordHash { get; private set; }
+    public string ProfilePictureUrl { get; private set; }
+    public DateTime CreatedAt { get; private set; }
+    public DateTime? LastLoginAt { get; private set; }
+    public string Role { get; private set; }
+    public bool IsActive { get; private set; }
 
     // Navigations
-    public ICollection<Message> Messages { get; set; }
-    public ICollection<Group> Groups { get; set; }
-    public ICollection<Notification> Notifications { get; set; }
+    public ICollection<Message> Messages { get; private set; } = new List<Message>();
+    public ICollection<Group> Groups { get; private set; } = new List<Group>();
+    public ICollection<Notification> Notifications { get; private set; } = new List<Notification>();
 
-    public static User Create(string username, string email, string passwordHash, string profilePictureUrl)
+    public static User Create(UserName username, FullName fullname, Email email, string password, string profilePictureUrl)
     {
-        if (string.IsNullOrWhiteSpace(username))
-            throw new ArgumentException("Username cannot be empty.", nameof(username));
-        if (string.IsNullOrWhiteSpace(email)) throw new ArgumentException("Email cannot be empty.", nameof(email));
-        if (string.IsNullOrWhiteSpace(passwordHash))
-            throw new ArgumentException("Password hash cannot be empty.", nameof(passwordHash));
+        if (username == null) 
+            throw new ArgumentNullException(nameof(username));
+        if (fullname == null) 
+            throw new ArgumentNullException(nameof(fullname));
+        if (email == null) 
+            throw new ArgumentNullException(nameof(email));
+        if (string.IsNullOrWhiteSpace(password))
+            throw new ArgumentException("Password cannot be empty.", nameof(password));
         if (string.IsNullOrWhiteSpace(profilePictureUrl))
             throw new ArgumentException("Profile picture URL cannot be empty.", nameof(profilePictureUrl));
 
@@ -33,73 +38,71 @@ public sealed class User : EntityBase<long>
         {
             Id = TsidCreator.GetTsid().ToLong(),
             Username = username,
+            FullName = fullname,
             Email = email,
-            PasswordHash = passwordHash,
+            PasswordHash = PasswordHash.Create(password),
             ProfilePictureUrl = profilePictureUrl,
             CreatedAt = DateTime.UtcNow,
-            IsActive = true
+            IsActive = true,
+            Role = "User"
         };
 
         return user;
     }
 
-    public static bool IsUsernameTaken(string username, IEnumerable<User> users) // kullanıcı adı alınmış mı kontrolü
+    public void AssignRole(string role)
     {
-        if (string.IsNullOrWhiteSpace(username))
-            throw new ArgumentException("Username cannot be empty.");
+        if (string.IsNullOrWhiteSpace(role))
+            throw new ArgumentException("Role cannot be empty.", nameof(role));
 
-        return users.Any(u => u.Username.Equals(username, StringComparison.OrdinalIgnoreCase));
-    }
-
-    public static bool IsEmailTaken(string email, IEnumerable<User> users) // email alınmış mı kontrolü
-    {
-        if (string.IsNullOrWhiteSpace(email))
-            throw new ArgumentException("Email cannot be empty.");
-
-        return users.Any(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
-    }
-
-    public void AssignRole(string role) // rol atama
-    {
         Role = role;
     }
 
-    public void DeactivateAccount() // hesabı pasif hale getirme
+    public void DeactivateAccount() // hesabı devre dışı bırakma
     {
+        if (!IsActive)
+            throw new InvalidOperationException("Account is already deactivated.");
+
         IsActive = false;
     }
 
-    public void UpdateUsername(string newUsername) // kullanıcı adı güncelleme
+    public void ActivateAccount() // hesabı etkinleştirme
     {
-        if (string.IsNullOrWhiteSpace(newUsername))
-            throw new ArgumentException("New username cannot be empty.", nameof(newUsername));
+        if (IsActive)
+            throw new InvalidOperationException("Account is already active.");
 
-        Username = newUsername;
+        IsActive = true;
+    }
+    public void UpdatePassword(string newPassword)
+    {
+        if (string.IsNullOrWhiteSpace(newPassword))
+            throw new ArgumentException("New password cannot be empty.", nameof(newPassword));
+
+        PasswordHash = PasswordHash.Create(newPassword);
     }
 
-    public void UpdateEmail(string newEmail) // email güncelleme
+    public bool VerifyPassword(string password) // Şifre doğrulama metodu
     {
-        if (string.IsNullOrWhiteSpace(newEmail))
-            throw new ArgumentException("New email cannot be empty.", nameof(newEmail));
+        if (string.IsNullOrWhiteSpace(password))
+            throw new ArgumentException("Password cannot be empty.", nameof(password));
 
-        Email = newEmail;
+        return PasswordHash.Verify(password);
     }
 
-    public void UpdatePassword(string newPasswordHash) // şifre güncelleme
+    public void UpdateProfile(UserName username, FullName fullname, Email email, string profilePictureUrl)
     {
-        if (string.IsNullOrWhiteSpace(newPasswordHash))
-            throw new ArgumentException("New password hash cannot be empty.", nameof(newPasswordHash));
-
-        PasswordHash = newPasswordHash;
-    }
-
-    public void UpdateProfile(string username, string email, string profilePictureUrl) // profil güncelleme
-    {
-        if (!string.IsNullOrWhiteSpace(username))
+        if (username != null)
             Username = username;
-        if (!string.IsNullOrWhiteSpace(email))
+        if (fullname != null)
+            FullName = fullname;
+        if (email != null)
             Email = email;
         if (!string.IsNullOrWhiteSpace(profilePictureUrl))
             ProfilePictureUrl = profilePictureUrl;
+    }
+
+    public void UpdateLastLoginTime() // Kullanıcı giriş yaptığında çağrılacak
+    {
+        LastLoginAt = DateTime.UtcNow;
     }
 }

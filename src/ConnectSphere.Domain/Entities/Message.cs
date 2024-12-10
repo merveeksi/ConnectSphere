@@ -1,33 +1,32 @@
 using ConnectSphere.Domain.Common.Entities;
 using ConnectSphere.Domain.DomainEvents;
+using ConnectSphere.Domain.ValueObjects;
 using TSID.Creator.NET;
 
 namespace ConnectSphere.Domain.Entities;
 
 public sealed class Message : EntityBase<long>
 {
-    public long SenderId { get; set; } // Gönderen kullanıcı ID
-    public long? ReceiverId { get; set; } // Alıcı kullanıcı ID (null ise grup mesajıdır)
-    public string Content { get; set; } // Mesaj içeriği
-    public DateTime SentAt { get; set; } // Gönderilme tarihi
-    public bool IsRead { get; set; } // Mesaj okunma durumu
+    public long SenderId { get; private set; } // Gönderen kullanıcı ID
+    public long? ReceiverId { get; private set; } // Alıcı kullanıcı ID (null ise grup mesajıdır)
+    public Content Content { get; private set; } // Mesaj içeriği artık Content value object
+    public DateTime SentAt { get; private set; } // Gönderilme tarihi
+    public bool IsRead { get; private set; } // Mesaj okunma durumu
 
     // Navigations
-    public User Sender { get; set; }
-    public User Receiver { get; set; }
-    public long? GroupId { get; set; } // Grup ID (null ise birebir mesajdır)
-    public Group Group { get; set; }
+    public User Sender { get; private set; }
+    public User Receiver { get; private set; }
+    public long? GroupId { get; private set; } // Grup ID (null ise birebir mesajdır)
+    public Group Group { get; private set; }
 
-    public static Message Create(long senderId, long? receiverId, string content)
+    public static Message Create(long senderId, long? receiverId, Content content)
     {
-        ValidateContent(content);
-
         var message = new Message
         {
             Id = TsidCreator.GetTsid().ToLong(),
             SenderId = senderId,
             ReceiverId = receiverId,
-            Content = content,
+            Content = Content.Create(content), // Content value object oluşturuluyor
             SentAt = DateTime.UtcNow,
             IsRead = false
         };
@@ -41,20 +40,19 @@ public sealed class Message : EntityBase<long>
     {
         IsRead = true;
     }
-    
-    public void Create() // Mesajı oluşturma
-    {
-        RaiseDomainEvent(new MessageCreatedDomainEvent(this));
-    }
 
     public void Delete() // Mesajı silme
     {
         RaiseDomainEvent(new MessageDeletedDomainEvent(this));
     }
 
-    private static void ValidateContent(string content) // Mesaj içeriğini doğrulama
+    public string GetMessagePreview() // Mesaj önizlemesi alma
     {
-        if (string.IsNullOrWhiteSpace(content))
-            throw new ArgumentException("Message content cannot be empty.", nameof(content));
+        return Content.GetPreview();
+    }
+
+    public bool ContainsUrl() // Mesajda URL var mı kontrolü
+    {
+        return Content.ContainsUrl;
     }
 }

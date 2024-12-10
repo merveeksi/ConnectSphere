@@ -38,11 +38,6 @@ public sealed class LiveStream : EntityBase<long>
         return liveStream;
     }
     
-    private void Handle(LiveStreamStartedDomainEvent domainEvent)
-    {
-        // Domain event ile ilgili bir şeyler yapın
-    }
-    
     public void End() // Yayını sonlandırma
     {
         if (EndedAt.HasValue) throw new InvalidOperationException("Live stream has already ended.");
@@ -53,17 +48,20 @@ public sealed class LiveStream : EntityBase<long>
     public void SendMessage(string message) // Mesaj gönderme
     {
         if (string.IsNullOrWhiteSpace(message)) throw new ArgumentException("Message cannot be empty.", nameof(message));
+        if (Messages.Count >= 1000) throw new InvalidOperationException("Maximum message limit reached.");
         Messages.Add(message);
     }
 
     public void MuteUser(long userId) // Kullanıcıyı susturma
     {
+        if (userId <= 0) throw new ArgumentException("User ID must be positive.", nameof(userId));
         if (MutedUserIds.Contains(userId)) throw new InvalidOperationException("User is already muted.");
         MutedUserIds.Add(userId);
     }
 
     public void UnmuteUser(long userId) // Susturmayı kaldırma
     {
+        if (userId <= 0) throw new ArgumentException("User ID must be positive.", nameof(userId));
         if (!MutedUserIds.Contains(userId)) throw new InvalidOperationException("User is not muted.");
         MutedUserIds.Remove(userId);
     }

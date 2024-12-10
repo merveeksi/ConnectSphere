@@ -1,5 +1,6 @@
 using ConnectSphere.Domain.Common.Entities;
 using ConnectSphere.Domain.DomainEvents;
+using ConnectSphere.Domain.ValueObjects;
 using TSID.Creator.NET;
 
 namespace ConnectSphere.Domain.Entities;
@@ -7,29 +8,32 @@ namespace ConnectSphere.Domain.Entities;
 //sealed: Bu sınıftan kalıtım alınamaz, türetemezsin.
 public sealed class Group : EntityBase<long>
 {
-    public string GroupName { get; set; } // Grup adı
-    public DateTime CreatedAt { get; set; } // Grup oluşturma tarihi
+    public GroupName GroupName { get; private set; } // private set yapıldı
+    public DateTime CreatedAt { get; private set; }
+    public long CreatedById { get; private set; } // CreatedBy için ID eklendi
 
     // Navigations
-    public User CreatedBy { get; set; }
-    public ICollection<User> Members { get; set; } // Grup üyeleri
-    public ICollection<Message> Messages { get; set; } // Grup mesajları
+    public User CreatedBy { get; private set; }
+    public ICollection<User> Members { get; private set; } = new List<User>();
+    public ICollection<Message> Messages { get; private set; } = new List<Message>();
 
-
-    public Group()
+    private Group() // private constructor
     {
         Id = TsidCreator.GetTsid().ToLong();
     }
     
-    public static Group Create(string groupName, User createdBy) // Grup oluşturma 
+    public static Group Create(GroupName groupName, User createdBy)
     {
-        if (string.IsNullOrWhiteSpace(groupName)) throw new ArgumentException("Group name cannot be empty.", nameof(groupName));
-        if (createdBy == null) throw new ArgumentNullException(nameof(createdBy), "Created by user cannot be null.");
+        if (groupName == null) 
+            throw new ArgumentNullException(nameof(groupName));
+        if (createdBy == null) 
+            throw new ArgumentNullException(nameof(createdBy));
 
         var group = new Group
         {
             GroupName = groupName,
             CreatedAt = DateTime.UtcNow,
+            CreatedById = createdBy.Id,
             CreatedBy = createdBy
         };
         
@@ -37,58 +41,70 @@ public sealed class Group : EntityBase<long>
 
         return group;
     }
-    
-    private void Handle(GroupCreatedDomainEvent domainEvent) // Grup oluşturulduğunda yapılacak işlemler
+
+    public void UpdateGroupName(GroupName newGroupName)
     {
-        // Domain event ile ilgili bir şeyler yapın
+        if (newGroupName == null)
+            throw new ArgumentNullException(nameof(newGroupName));
+
+        GroupName = newGroupName;
     }
-    
-    public void AddMember(User user) // Gruba üye ekleme 
+
+    public void AddMember(User user)
     {
-        if (user == null) throw new ArgumentNullException(nameof(user), "User cannot be null.");
-        if (Members == null) Members = new List<User>();
+        if (user == null) 
+            throw new ArgumentNullException(nameof(user));
+
+        if (Members.Any(m => m.Id == user.Id))
+            throw new InvalidOperationException("User is already a member of this group.");
 
         Members.Add(user);
     }
     
-    public void RemoveMember(User user) // Grubu üyeden çıkarma
+    public void RemoveMember(User user)
     {
-        if (user == null) throw new ArgumentNullException(nameof(user), "User cannot be null.");
-        if (Members == null) return;
+        if (user == null) 
+            throw new ArgumentNullException(nameof(user));
 
-        Members.Remove(user);
+        var member = Members.FirstOrDefault(m => m.Id == user.Id);
+        if (member == null)
+            throw new InvalidOperationException("User is not a member of this group.");
+
+        Members.Remove(member);
     }
     
-    public void AddMessage(Message message) // Gruba mesaj ekleme
+    public void AddMessage(Message message)
     {
-        if (message == null) throw new ArgumentNullException(nameof(message), "Message cannot be null.");
-        if (Messages == null) Messages = new List<Message>();
+        if (message == null) 
+            throw new ArgumentNullException(nameof(message));
 
         Messages.Add(message);
     }
     
-    public void RemoveMessage(Message message) // Grubun mesajını silme
+    public void RemoveMessage(Message message)
     {
-        if (message == null) throw new ArgumentNullException(nameof(message), "Message cannot be null.");
-        if (Messages == null) return;
+        if (message == null) 
+            throw new ArgumentNullException(nameof(message));
 
-        Messages.Remove(message);
+        var existingMessage = Messages.FirstOrDefault(m => m.Id == message.Id);
+        if (existingMessage == null)
+            throw new InvalidOperationException("Message not found in this group.");
+
+        Messages.Remove(existingMessage);
     }
     
-    public void ClearMessages() // Grubun mesajlarını temizleme
+    public void ClearMessages()
     {
-        if (Messages == null) return;
-
         Messages.Clear();
     }
-    
-    public void UpdateGroupName(string groupName) // Grup adını güncelleme
-    {
-        if (string.IsNullOrWhiteSpace(groupName)) throw new ArgumentException("Group name cannot be empty.", nameof(groupName));
 
-        GroupName = groupName;
+    public string GetGroupInitials()
+    {
+        return GroupName.GetGroupInitials();
     }
-    
-    
-    
+
+    public bool IsDefaultGroup()
+    {
+        return GroupName.IsDefaultGroup();
+    }
 }

@@ -8,8 +8,8 @@ public record FullName
     private const int MinLength = 2;
     private const int MaxLength = 100;
 
-    public string FirstName { get; init; }
-    public string LastName { get; init; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
 
     public FullName(string firstName, string lastName)
     {
@@ -49,4 +49,16 @@ public record FullName
 
     public override string ToString() => $"{FirstName} {LastName}";
     public string GetInitials() => $"{FirstName[0]}.{LastName[0]}";
+
+    public void Update(string firstName, string lastName)
+    {
+        if (!IsValid(firstName))
+            throw new ArgumentException("Invalid first name.");
+
+        if (!IsValid(lastName))
+            throw new ArgumentException("Invalid last name.");
+
+        FirstName = firstName;
+        LastName = lastName;
+    }
 }
