@@ -2,7 +2,7 @@ using ConnectSphere.Domain.DomainEvents;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace ConnectSphere.Application.Features.Medias.Commands.Create;
+namespace ConnectSphere.Application.Features.Media.Commands.Create;
 
 public sealed class MediaDeletedDomainEventHandler : INotificationHandler<MediaDeletedDomainEvent>
 {

@@ -1,12 +1,12 @@
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/bin/Debug/net8.0/ConnectSphere.Domain.deps.json
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/bin/Debug/net8.0/ConnectSphere.Domain.dll
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/bin/Debug/net8.0/ConnectSphere.Domain.pdb
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/obj/Debug/net8.0/ConnectSphere.Domain.csproj.AssemblyReference.cache
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/obj/Debug/net8.0/ConnectSphere.Domain.GeneratedMSBuildEditorConfig.editorconfig
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/obj/Debug/net8.0/ConnectSphere.Domain.AssemblyInfoInputs.cache
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/obj/Debug/net8.0/ConnectSphere.Domain.AssemblyInfo.cs
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/obj/Debug/net8.0/ConnectSphere.Domain.csproj.CoreCompileInputs.cache
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/obj/Debug/net8.0/ConnectSphere.Domain.sourcelink.json
-/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/bin/Debug/net8.0/ConnectSphere.Domain.deps.json
-/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/bin/Debug/net8.0/ConnectSphere.Domain.dll
-/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/bin/Debug/net8.0/ConnectSphere.Domain.pdb
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/obj/Debug/net8.0/ConnectSphere.Domain.dll
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/obj/Debug/net8.0/refint/ConnectSphere.Domain.dll
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/obj/Debug/net8.0/ConnectSphere.Domain.pdb

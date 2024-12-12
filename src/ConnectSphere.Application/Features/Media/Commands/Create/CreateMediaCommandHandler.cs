@@ -2,7 +2,7 @@ using ConnectSphere.Application.Common.Interfaces;
 using ConnectSphere.Domain.Entities;
 using MediatR;
 
-namespace ConnectSphere.Application.Features.Medias.Commands.Create;
+namespace ConnectSphere.Application.Features.Media.Commands.Create;
 
 public sealed class CreateMediaCommandHandler : IRequestHandler<CreateMediaCommand, long>
 {
@@ -15,9 +15,9 @@ public sealed class CreateMediaCommandHandler : IRequestHandler<CreateMediaComma
 
     public async Task<long> Handle(CreateMediaCommand request, CancellationToken cancellationToken)
     {
-        var media = Media.Create(request.UploadedById, request.Url, request.MediaType);
-        _context.Medias.Add(media);
+        var media = ConnectSphere.Domain.Entities.Media.Create(request.UploadedById, request.Url, request.MediaType);
+        _context.Media.Add(media);
         await _context.SaveChangesAsync(cancellationToken);
         return media.Id;
     }
-} 
+}

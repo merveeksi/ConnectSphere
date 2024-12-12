@@ -1,6 +1,7 @@
 using ConnectSphere.Domain.Common.Entities;
 using ConnectSphere.Domain.DomainEvents;
 using TSID.Creator.NET;
+using ConnectSphere.Domain.ValueObjects;
 
 namespace ConnectSphere.Domain.Entities;
 
@@ -20,7 +21,7 @@ public sealed class Media : EntityBase<long>
     public static Media Create(long uploadedById, string url, string mediaType, long fileSize)
     {
         ValidateMedia(fileSize, mediaType);
-
+        
         var media = new Media
         {
             Id = TsidCreator.GetTsid().ToLong(),
@@ -33,6 +34,10 @@ public sealed class Media : EntityBase<long>
         media.RaiseDomainEvent(new MediaUploadedDomainEvent(media));
 
         return media;
+    }
+    public static Media Create(long requestUploadedById, string requestUrl, string requestMediaType)
+    {
+        throw new NotImplementedException();
     }
 
     private static void ValidateMedia(long fileSize, string mediaType) // Medya dosyasının geçerli olup olmadığını kontrol eder
@@ -60,10 +65,5 @@ public sealed class Media : EntityBase<long>
     {
         RaiseDomainEvent(new MediaDeletedDomainEvent(this));
     }
-
-    //Anlam veremediğim bir şekilde tekrardan ekliyor. Hatamı bulamadım.
-    public static Media Create(long requestUploadedById, string requestUrl, string requestMediaType)
-    {
-        throw new NotImplementedException();
-    }
+    
 }

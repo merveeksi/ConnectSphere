@@ -16,14 +16,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Groups\Queries\" />
       <Folder Include="Features\LiveStreams\Commands\Create\" />
-      <Folder Include="Features\LiveStreams\Queries\" />
-      <Folder Include="Features\Medias\Queries\" />
-      <Folder Include="Features\Messages\Queries\" />
-      <Folder Include="Features\Notifications\Queries\" />
       <Folder Include="Features\Users\Commands\Create\" />
-      <Folder Include="Features\Users\Queries\" />
     </ItemGroup>
 
 </Project>

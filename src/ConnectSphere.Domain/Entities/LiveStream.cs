@@ -11,6 +11,7 @@ public sealed class LiveStream : EntityBase<long>
     public string StreamUrl { get; private set; } // Yayın URL'si
     public DateTime StartedAt { get; private set; } // Yayın başlangıç tarihi
     public DateTime? EndedAt { get; private set; } // Yayın bitiş tarihi
+    public bool IsActive => EndedAt == null; // Yayın devam ediyor mu?
 
     // Navigations
     public User Host { get; set; }

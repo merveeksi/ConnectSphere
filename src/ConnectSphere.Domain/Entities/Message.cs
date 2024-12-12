@@ -8,7 +8,7 @@ namespace ConnectSphere.Domain.Entities;
 public sealed class Message : EntityBase<long>
 {
     public long SenderId { get; private set; } // Gönderen kullanıcı ID
-    public long? ReceiverId { get; private set; } // Alıcı kullanıcı ID (null ise grup mesajıdır)
+    public long ReceiverId { get; private set; } // Alıcı kullanıcı ID (null ise grup mesajıdır)
     public Content Content { get; private set; } // Mesaj içeriği artık Content value object
     public DateTime SentAt { get; private set; } // Gönderilme tarihi
     public bool IsRead { get; private set; } // Mesaj okunma durumu
@@ -19,7 +19,7 @@ public sealed class Message : EntityBase<long>
     public long? GroupId { get; private set; } // Grup ID (null ise birebir mesajdır)
     public Group Group { get; private set; }
 
-    public static Message Create(long senderId, long? receiverId, Content content)
+    public static Message Create(long senderId, long receiverId, Content content)
     {
         var message = new Message
         {
