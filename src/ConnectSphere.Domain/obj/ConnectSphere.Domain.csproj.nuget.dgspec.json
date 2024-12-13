@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj": {}
+    "/Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj": {}
   },
   "projects": {
-    "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj": {
+    "/Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj",
+        "projectUniqueName": "/Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj",
         "projectName": "ConnectSphere.Domain",
-        "projectPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj",
+        "projectPath": "/Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj",
         "packagesPath": "/Users/pc/.nuget/packages/",
-        "outputPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/obj/",
+        "outputPath": "/Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/pc/.nuget/NuGet/NuGet.Config"
