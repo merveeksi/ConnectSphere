@@ -15,11 +15,22 @@ public sealed class GetAllMessageQueryHandler : IRequestHandler<GetAllMessageQue
 
     public Task<List<MessageGetAllDto>> Handle(GetAllMessageQuery request, CancellationToken cancellationToken)
     {
-        return _context
-            .Messages
-            .AsNoTracking()
-            .Where(x => x.SenderId == request.SenderId)
-            .Select(x => MessageGetAllDto.Create(x))
-            .ToListAsync(cancellationToken);
+        var query = _context.Messages.AsQueryable();
+
+        query = query.Where(x => x.SenderId == request.SenderId);
+
+        if(request.ReceiverId.HasValue)
+            query = query.Where(x => x.ReceiverId == request.ReceiverId.Value);
+
+        if(!string.IsNullOrEmpty(request.Content))
+            query = query.Where(x => x.Content.Value.ToLower().Contains(request.Content.ToLower()));
+
+        if(request.SentAt.HasValue)
+            query = query.Where(x => x.SentAt == request.SentAt.Value);
+
+        if(request.IsRead)
+            query = query.Where(x => x.IsRead == request.IsRead);
+
+        return query.AsNoTracking().Select(x => MessageGetAllDto.Create(x)).ToListAsync(cancellationToken);
     }
 }

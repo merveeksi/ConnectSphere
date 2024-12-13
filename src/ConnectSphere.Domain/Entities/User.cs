@@ -6,7 +6,7 @@ namespace ConnectSphere.Domain.Entities;
 
 public sealed class User : EntityBase<long>
 {
-    public UserName Username { get; private set; }
+    public UserName UserName { get; private set; }
     public FullName FullName { get; private set; }
     public Email Email { get; private set; }
     public PasswordHash PasswordHash { get; private set; }
@@ -39,7 +39,7 @@ public sealed class User : EntityBase<long>
         var user = new User()
         {
             Id = TsidCreator.GetTsid().ToLong(),
-            Username = username,
+            UserName = username,
             FullName = fullname,
             Email = email,
             PasswordHash = passwordHash,
@@ -94,7 +94,7 @@ public sealed class User : EntityBase<long>
     public void UpdateProfile(UserName username, FullName fullname, Email email, string profilePictureUrl)
     {
         if (username != null)
-            Username = username;
+            UserName = username;
         if (fullname != null)
             FullName = fullname;
         if (email != null)

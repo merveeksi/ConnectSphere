@@ -17,7 +17,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .UseIdentityAlwaysColumn()
             .HasIdentityOptions(startValue: 1);
 
-        builder.Property(x => x.Username)
+        builder.Property(x => x.UserName)
             .HasConversion(
                 x => x.Value,
                 x => UserName.Create(x))
@@ -76,7 +76,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .OnDelete(DeleteBehavior.Cascade);
 
         // İndeksler
-        builder.HasIndex(x => x.Username)
+        builder.HasIndex(x => x.UserName)
             .IsUnique()
             .HasDatabaseName("ix_users_username");
 

@@ -18,7 +18,7 @@ public sealed class GetByIdMediaQueryHandler : IRequestHandler<GetByIdMediaQuery
         var media = await _context
             .Media
             .AsNoTracking()
-            .Select(x => new MediaGetByIdDto(x.Id, x.UploadedById, x.Url, x.MediaType, x.UploadedAt)
+            .Select(x => new MediaGetByIdDto(x.Id, x.UploadedById, x.Url, x.MediaType, x.FileSize, x.UploadedAt)
             {
                 Id = 0,
                 UploadedById = 0,

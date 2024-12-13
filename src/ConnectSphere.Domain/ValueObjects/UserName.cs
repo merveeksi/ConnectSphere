@@ -57,7 +57,7 @@ public sealed record UserName
         if (username == null)
             throw new ArgumentNullException(nameof(username));
 
-        return users.Any(u => u.Username.Value.Equals(username.Value, StringComparison.OrdinalIgnoreCase));
+        return users.Any(u => u.UserName.Value.Equals(username.Value, StringComparison.OrdinalIgnoreCase));
     }
 
     public void Update(string newValue)

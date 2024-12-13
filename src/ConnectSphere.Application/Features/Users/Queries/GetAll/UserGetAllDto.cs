@@ -6,7 +6,7 @@ namespace ConnectSphere.Application.Features.Users.Queries.GetAll;
 public sealed record UserGetAllDto
 {
     public required long Id { get; set; }
-    public required UserName Username { get; set; }
+    public required UserName UserName { get; set; }
     public  FullName FullName { get; set; }
     public required Email Email { get; set; }
     public  string ProfilePictureUrl { get; set; }
@@ -21,7 +21,7 @@ public sealed record UserGetAllDto
         return new UserGetAllDto
         {
             Id = user.Id,
-            Username = user.Username,
+            UserName = user.UserName,
             FullName = user.FullName,
             Email = user.Email,
             ProfilePictureUrl = user.ProfilePictureUrl,
@@ -36,7 +36,7 @@ public sealed record UserGetAllDto
     public UserGetAllDto(long id, UserName username, FullName fullName, Email email, string profilePictureUrl, PasswordHash passwordHash, string role, DateTime createdAt, bool isActive, DateTime? lastLoginAt)
     {
         Id = id;
-        Username = username;
+        UserName = username;
         FullName = fullName;
         Email = email;
         ProfilePictureUrl = profilePictureUrl;

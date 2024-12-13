@@ -12,14 +12,25 @@ public sealed class GetAllGroupQueryHandler : IRequestHandler<GetAllGroupQuery, 
     {
         _context = context;
     }
-    
+
     public Task<List<GroupGetAllDto>> Handle(GetAllGroupQuery request, CancellationToken cancellationToken)
     {
-        return _context
-            .Groups
+        var query = _context.Groups.AsQueryable();
+        
+        query = query.Where(x => x.CreatedById == request.CreatedById);
+        
+        if (!string.IsNullOrEmpty(request.GroupName))
+            query = query.Where(x => x.GroupName.Value.ToLower().Contains(request.GroupName.Value.ToLower()));
+        
+        if (request.CreatedAt.HasValue)
+            query = query.Where(x => x.CreatedAt.Date == request.CreatedAt.Value.Date);
+
+        return query
             .AsNoTracking()
-            .Where(x => x.CreatedById == request.CreatedById)
-            .Select(x => GroupGetAllDto.Create(x))
+            .Select(x => new GroupGetAllDto(x.Id, x.GroupName, x.CreatedAt, x.CreatedById)
+            {
+                Id = 0
+            })
             .ToListAsync(cancellationToken);
     }
 }

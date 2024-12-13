@@ -18,10 +18,10 @@ public sealed class GetByIdUserQueryHandler : IRequestHandler<GetByIdUserQuery, 
         var user = await _context
             .Users
             .AsNoTracking()
-            .Select(x => new UserGetByIdDto(x.Id, x.Username, x.FullName, x.Email, x.ProfilePictureUrl, x.PasswordHash, x.Role, x.CreatedAt, x.IsActive, x.LastLoginAt)
+            .Select(x => new UserGetByIdDto(x.Id, x.UserName, x.FullName, x.Email, x.ProfilePictureUrl, x.PasswordHash, x.Role, x.CreatedAt, x.IsActive, x.LastLoginAt)
             {
                 Id = 0,
-                Username = null,
+                UserName = null,
                 Email = null,
                 PasswordHash = null
             })

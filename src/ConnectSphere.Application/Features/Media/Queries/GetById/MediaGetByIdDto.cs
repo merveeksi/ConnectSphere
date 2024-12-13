@@ -6,6 +6,7 @@ public sealed record MediaGetByIdDto
     public required long UploadedById { get; set; }
     public required string Url { get; set; }
     public  string MediaType { get; set; }
+    public string FileSie { get; set; }
     public  DateTime UploadedAt { get; set; }
 
     
@@ -17,16 +18,18 @@ public sealed record MediaGetByIdDto
             UploadedById = media.UploadedById,
             Url = media.Url,
             MediaType = media.MediaType,
+            FileSie = media.FileSize,
             UploadedAt = media.UploadedAt
         };
     }
 
-    public MediaGetByIdDto(long id, long uploadedById, string url, string mediaType, DateTime uploadedAt)
+    public MediaGetByIdDto(long id, long uploadedById, string url, string mediaType, string fileSie, DateTime uploadedAt)
     {
         Id = id;
         UploadedById = uploadedById;
         Url = url;
         MediaType = mediaType;
+        FileSie = fileSie;
         UploadedAt = uploadedAt;
     }
     public MediaGetByIdDto()
