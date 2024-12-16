@@ -12,17 +12,18 @@ public sealed record LiveStreamGetAllDto
     public  DateTime? EndedAt { get; set; }
     public  bool IsActive { get; set; }
 
-    public static LiveStreamGetAllDto Create(LiveStream liveStream)
+    public static LiveStreamGetAllDto Create(long id, long hostId, string title, string streamUrl, 
+        DateTime startedAt, DateTime? endedAt, bool isActive)
     {
         return new LiveStreamGetAllDto
         {
-            Id = liveStream.Id,
-            HostId = liveStream.HostId,
-            Title = liveStream.Title,
-            StreamUrl = liveStream.StreamUrl,
-            StartedAt = liveStream.StartedAt,
-            EndedAt = liveStream.EndedAt,
-            IsActive = liveStream.IsActive
+            Id = id,
+            HostId = hostId,
+            Title = title,
+            StreamUrl = streamUrl,
+            StartedAt = startedAt,
+            EndedAt = endedAt,
+            IsActive = isActive
         };
     }
 

@@ -1042,11 +1042,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Application/ConnectSphere.Application.csproj",
+      "projectUniqueName": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/ConnectSphere.Application.csproj",
       "projectName": "ConnectSphere.Application",
-      "projectPath": "/Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Application/ConnectSphere.Application.csproj",
+      "projectPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/ConnectSphere.Application.csproj",
       "packagesPath": "/Users/pc/.nuget/packages/",
-      "outputPath": "/Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Application/obj/",
+      "outputPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/pc/.nuget/NuGet/NuGet.Config"
@@ -1061,8 +1061,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj": {
-              "projectPath": "/Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj"
+            "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj": {
+              "projectPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj"
             }
           }
         }

@@ -31,6 +31,14 @@ public sealed class GetAllMessageQueryHandler : IRequestHandler<GetAllMessageQue
         if(request.IsRead)
             query = query.Where(x => x.IsRead == request.IsRead);
 
-        return query.AsNoTracking().Select(x => MessageGetAllDto.Create(x)).ToListAsync(cancellationToken);
+        return query
+        .AsNoTracking()
+        .Select(x => new MessageGetAllDto(x.Id, x.SenderId, x.ReceiverId, x.Content, x.SentAt, x.IsRead)
+        {
+            Id = 0,
+            SenderId = 0,
+            ReceiverId = 0
+        })
+        .ToListAsync(cancellationToken);
     }
 }

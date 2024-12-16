@@ -45,7 +45,13 @@ public sealed class GetAllUserQueryHandler : IRequestHandler<GetAllUserQuery, Li
 
         return query
             .AsNoTracking()
-            .Select(x => UserGetAllDto.Create(x))
+            .Select(x => new UserGetAllDto(x.Id, x.UserName, x.FullName, x.Email, x.ProfilePictureUrl, x.PasswordHash, x.Role, x.CreatedAt, x.IsActive, x.LastLoginAt)
+            {
+                Id = 0,
+                UserName = null,
+                Email = null,
+                PasswordHash = null
+            })
             .ToListAsync(cancellationToken);
     }
 }

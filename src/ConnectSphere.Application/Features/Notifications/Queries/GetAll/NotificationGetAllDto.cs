@@ -11,16 +11,16 @@ public sealed record NotificationGetAllDto
     public  bool IsRead { get; set; }
     public  DateTime SentAt { get; set; }
 
-    public static NotificationGetAllDto Create(Notification notification)
+    public static NotificationGetAllDto Create(long id, long userId, string content, string notificationType, bool isRead, DateTime sentAt)
     {
         return new NotificationGetAllDto
         {
-            Id = notification.Id,
-            UserId = notification.UserId,
-            Content = notification.Content.Value,
-            NotificationType = notification.NotificationType,
-            IsRead = notification.IsRead,
-            SentAt = notification.SentAt
+            Id = id,
+            UserId = userId,
+            Content = content,
+            NotificationType = notificationType,
+            IsRead = isRead,
+            SentAt = sentAt
         };
     }
 

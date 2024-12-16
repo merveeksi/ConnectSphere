@@ -34,6 +34,13 @@ public sealed class GetAllLiveStreamQueryHandler : IRequestHandler<GetAllLiveStr
         if(request.IsActive)
             query = query.Where(x => x.IsActive == request.IsActive);
 
-        return query.AsNoTracking().Select(x => LiveStreamGetAllDto.Create(x)).ToListAsync(cancellationToken);
+        return query
+        .AsNoTracking()
+        .Select(x => new LiveStreamGetAllDto(x.Id, x.HostId, x.Title, x.StreamUrl, x.StartedAt, x.EndedAt, x.IsActive)
+        {
+            Id = 0,
+            HostId = 0
+        })
+        .ToListAsync(cancellationToken);
     }
 }

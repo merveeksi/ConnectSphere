@@ -12,14 +12,14 @@ public sealed record GroupGetAllDto
     public long CreatedById { get; set; }
 
 
-    public static GroupGetAllDto Create(Group group)
+    public static GroupGetAllDto Create(long id, GroupName groupName, DateTime createdAt, long createdById)
     {
         return new GroupGetAllDto
         {
-            Id = group.Id,
-            GroupName = group.GroupName,
-            CreatedAt = group.CreatedAt,
-            CreatedById = group.CreatedById
+            Id = id,
+            GroupName = groupName,
+            CreatedAt = createdAt,
+            CreatedById = createdById
         };
     }
 

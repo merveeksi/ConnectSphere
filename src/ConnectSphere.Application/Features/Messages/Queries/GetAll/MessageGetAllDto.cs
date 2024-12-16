@@ -11,16 +11,16 @@ public sealed record MessageGetAllDto
     public  DateTime SentAt { get; set; }
     public  bool IsRead { get; set; }
 
-    public static MessageGetAllDto Create(Message message)
+    public static MessageGetAllDto Create(long id, long senderId, long receiverId, string content, DateTime sentAt, bool isRead)
     {
         return new MessageGetAllDto
         {
-            Id = message.Id,
-            SenderId = message.SenderId,
-            ReceiverId = message.ReceiverId,
-            Content = message.Content.Value,
-            SentAt = message.SentAt,
-            IsRead = message.IsRead
+            Id = id,
+            SenderId = senderId,
+            ReceiverId = receiverId,
+            Content = content,
+            SentAt = sentAt,
+            IsRead = isRead
         };
     }
 

@@ -9,16 +9,16 @@ public sealed record MediaGetAllDto
     public string FileSize { get; set; }
     public  DateTime UploadedAt { get; set; }
 
-    public static MediaGetAllDto Create(Domain.Entities.Media media)
+    public static MediaGetAllDto Create(long id, long uploadedById, string url, string mediaType, string fileSize, DateTime uploadedAt)
     {
         return new MediaGetAllDto
         {
-            Id = media.Id,
-            UploadedById = media.UploadedById,
-            Url = media.Url,
-            MediaType = media.MediaType,
-            FileSize = media.FileSize,
-            UploadedAt = media.UploadedAt
+            Id = id,
+            UploadedById = uploadedById,
+            Url = url,
+            MediaType = mediaType,
+            FileSize = fileSize,
+            UploadedAt = uploadedAt
         };
     }
 

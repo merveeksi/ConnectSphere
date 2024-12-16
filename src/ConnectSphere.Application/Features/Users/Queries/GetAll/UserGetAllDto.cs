@@ -16,20 +16,20 @@ public sealed record UserGetAllDto
     public  bool IsActive { get; set; }
     public  DateTime? LastLoginAt { get; set; }
 
-    public static UserGetAllDto Create(User user)
+    public static UserGetAllDto Create(long id, UserName username, FullName fullName, Email email, string profilePictureUrl, PasswordHash passwordHash, string role, DateTime createdAt, bool isActive, DateTime? lastLoginAt)
     {
         return new UserGetAllDto
         {
-            Id = user.Id,
-            UserName = user.UserName,
-            FullName = user.FullName,
-            Email = user.Email,
-            ProfilePictureUrl = user.ProfilePictureUrl,
-            PasswordHash = user.PasswordHash,
-            Role = user.Role,
-            CreatedAt = user.CreatedAt,
-            IsActive = user.IsActive,
-            LastLoginAt = user.LastLoginAt
+            Id = id,
+            UserName = username,
+            FullName = fullName,
+            Email = email,
+            ProfilePictureUrl = profilePictureUrl,
+            PasswordHash = passwordHash,
+            Role = role,
+            CreatedAt = createdAt,
+            IsActive = isActive,
+            LastLoginAt = lastLoginAt
         };
     }
 

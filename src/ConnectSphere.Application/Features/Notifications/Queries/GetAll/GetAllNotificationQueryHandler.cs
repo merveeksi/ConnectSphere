@@ -19,7 +19,11 @@ public sealed class GetAllNotificationQueryHandler : IRequestHandler<GetAllNotif
             .Notifications
             .AsNoTracking()
             .Where(x => x.UserId == request.UserId)
-            .Select(x => NotificationGetAllDto.Create(x))
+            .Select(x => new NotificationGetAllDto(x.Id, x.UserId, x.Content, x.NotificationType, x.IsRead, x.SentAt)
+            {
+                Id = 0,
+                UserId = 0
+            })
             .ToListAsync(cancellationToken);
     }
 }

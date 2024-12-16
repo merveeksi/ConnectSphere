@@ -31,6 +31,14 @@ public sealed class GetAllMediaQueryHandler : IRequestHandler<GetAllMediaQuery, 
         if(request.UploadedAt.HasValue)
             query = query.Where(x => x.UploadedAt == request.UploadedAt.Value);
 
-        return query.AsNoTracking().Select(x => MediaGetAllDto.Create(x)).ToListAsync(cancellationToken);
+        return query
+        .AsNoTracking()
+        .Select(x => new MediaGetAllDto(x.Id, x.UploadedById, x.Url, x.MediaType, x.FileSize, x.UploadedAt)
+        {
+            Id = 0,
+            UploadedById = 0,
+            Url = null
+        })
+        .ToListAsync(cancellationToken);
     }
 }
