@@ -14,8 +14,8 @@ public sealed class Group : EntityBase<long>
 
     // Navigations
     public User CreatedBy { get; private set; }
-    public ICollection<User> Members { get; private set; } = new List<User>();
-    public ICollection<Message> Messages { get; private set; } = new List<Message>();
+    public ICollection<User> Members { get; private set; } = [];
+    public ICollection<Message> Messages { get; private set; } = [];
 
     private Group() // private constructor
     {
@@ -26,7 +26,7 @@ public sealed class Group : EntityBase<long>
     {
         if (groupName == null) 
             throw new ArgumentNullException(nameof(groupName));
-        if (createdBy == null) 
+        if (createdBy <= 0) 
             throw new ArgumentNullException(nameof(createdBy));
 
         var group = new Group

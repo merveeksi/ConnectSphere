@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectSphere.Application",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectSphere.Infrastructure", "src\ConnectSphere.Infrastructure\ConnectSphere.Infrastructure.csproj", "{B10A6A03-0949-40C4-9867-12262CBF7664}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectSphere.WebApi", "src\ConnectSphere.WebApi\ConnectSphere.WebApi.csproj", "{AD4E49F8-F3FA-4491-90D5-8E096E5C8C9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,7 @@ Global
 		{98A2D281-E670-4ECA-A835-5D3DBA5BD7B0} = {3E372D80-13D8-4E81-BD06-A7BD195BD076}
 		{960B72C9-C620-4529-8405-AB373BDFEA35} = {3E372D80-13D8-4E81-BD06-A7BD195BD076}
 		{B10A6A03-0949-40C4-9867-12262CBF7664} = {3E372D80-13D8-4E81-BD06-A7BD195BD076}
+		{AD4E49F8-F3FA-4491-90D5-8E096E5C8C9F} = {3E372D80-13D8-4E81-BD06-A7BD195BD076}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{98A2D281-E670-4ECA-A835-5D3DBA5BD7B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -33,5 +36,9 @@ Global
 		{B10A6A03-0949-40C4-9867-12262CBF7664}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B10A6A03-0949-40C4-9867-12262CBF7664}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B10A6A03-0949-40C4-9867-12262CBF7664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD4E49F8-F3FA-4491-90D5-8E096E5C8C9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4E49F8-F3FA-4491-90D5-8E096E5C8C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4E49F8-F3FA-4491-90D5-8E096E5C8C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD4E49F8-F3FA-4491-90D5-8E096E5C8C9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

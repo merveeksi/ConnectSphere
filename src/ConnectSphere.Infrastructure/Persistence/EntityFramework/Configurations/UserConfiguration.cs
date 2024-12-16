@@ -56,9 +56,20 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasColumnName("profile_picture_url");
 
         builder.Property(x => x.Role)
-            .HasMaxLength(50)
             .IsRequired()
-            .HasColumnName("role");
+            .HasDefaultValue("User")
+            .HasMaxLength(50);
+
+        builder.Property(x => x.CreatedAt)
+            .IsRequired()
+            .HasDefaultValue(DateTime.UtcNow);
+
+        builder.Property(x => x.LastLoginAt)
+            .IsRequired(false);
+
+        builder.Property(x => x.IsActive)
+            .IsRequired()
+            .HasDefaultValue(true);
 
         // Relationships
         builder.HasMany(x => x.Messages)

@@ -7,14 +7,14 @@ namespace ConnectSphere.Domain.Entities;
 
 public sealed class Media : EntityBase<long>
 {
-    public long UploadedById { get; set; } // Yükleyen kullanıcı ID
-    public string Url { get; set; } // Medya dosyasının URL'si (Azure Blob Storage URL'si)
-    public string MediaType { get; set; } // Medya türü (ör. "image", "video")
-    public string FileSize { get; set; }
-    public DateTime UploadedAt { get; set; } // Yüklenme tarihi
+    public long UploadedById { get; private set; } // Yükleyen kullanıcı ID
+    public string Url { get; private set; } // Medya dosyasının URL'si (Azure Blob Storage URL'si)
+    public string MediaType { get; private set; } // Medya türü (ör. "image", "video")
+    public string FileSize { get; private set; } // Dosya boyutu
+    public DateTime UploadedAt { get; private set; } // Yüklenme tarihi
 
     // Navigations
-    public User UploadedBy { get; set; }
+    public User UploadedBy { get; private set; }
     
     public static Media Create(long uploadedById, string url, string mediaType, string fileSize)
     {

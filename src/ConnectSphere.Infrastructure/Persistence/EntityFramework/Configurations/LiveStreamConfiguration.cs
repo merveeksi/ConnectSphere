@@ -29,7 +29,7 @@ public class LiveStreamConfiguration : IEntityTypeConfiguration<LiveStream>
         builder.Property(x => x.StartedAt)
             .IsRequired()
             .HasColumnName("started_at")
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            .HasDefaultValue(DateTimeOffset.UtcNow);
 
         builder.Property(x => x.EndedAt)
             .HasColumnName("ended_at");
@@ -70,5 +70,9 @@ public class LiveStreamConfiguration : IEntityTypeConfiguration<LiveStream>
 
         // PostgreSQL-specific özellikler
         builder.HasComment("Canlı yayın bilgilerini içeren tablo");
+
+        // IsActive computed column
+        builder.Property(x => x.IsActive)
+            .HasComputedColumnSql("ended_at IS NULL");
     }
 } 

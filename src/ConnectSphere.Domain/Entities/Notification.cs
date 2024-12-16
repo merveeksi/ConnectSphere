@@ -9,7 +9,7 @@ public sealed class Notification : EntityBase<long>
 {
     public long UserId { get; private set; } // Bildirimi alan kullanıcı ID
     public Content Content { get; private set; } // Bildirim içeriği artık Content value object
-    public bool IsRead { get; private set; } // Okundu durumu
+    public bool IsRead { get; private set; } = false; // Okundu durumu, varsayılan false
     public DateTime SentAt { get; private set; } // Gönderim tarihi
     public string NotificationType { get; private set; } // Bildirim türü
 

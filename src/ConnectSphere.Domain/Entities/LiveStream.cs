@@ -14,10 +14,10 @@ public sealed class LiveStream : EntityBase<long>
     public bool IsActive => EndedAt == null; // Yayın devam ediyor mu?
 
     // Navigations
-    public User Host { get; set; }
+    public User Host { get; private set; }
     
-    public List<string> Messages { get; private set; } = new List<string>(); // Yayın sırasında gönderilen mesajlar
-    public HashSet<long> MutedUserIds { get; private set; } = new HashSet<long>(); // Susturulan kullanıcı ID'leri
+    public List<string> Messages { get; private set; } = []; // Yayın sırasında gönderilen mesajlar
+    public HashSet<long> MutedUserIds { get; private set; } = []; // Susturulan kullanıcı ID'leri
 
     public static LiveStream Create(long hostId, string title, string streamUrl) // Yayın oluşturma
     {

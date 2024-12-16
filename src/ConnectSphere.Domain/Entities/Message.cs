@@ -11,7 +11,7 @@ public sealed class Message : EntityBase<long>
     public long ReceiverId { get; private set; } // Alıcı kullanıcı ID (null ise grup mesajıdır)
     public Content Content { get; private set; } // Mesaj içeriği artık Content value object
     public DateTime SentAt { get; private set; } // Gönderilme tarihi
-    public bool IsRead { get; private set; } // Mesaj okunma durumu
+    public bool IsRead { get; private set; } = false; // Mesaj okunma durumu, varsayılan false
 
     // Navigations
     public User Sender { get; private set; }
@@ -27,8 +27,7 @@ public sealed class Message : EntityBase<long>
             SenderId = senderId,
             ReceiverId = receiverId,
             Content = Content.Create(content), // Content value object oluşturuluyor
-            SentAt = DateTime.UtcNow,
-            IsRead = false
+            SentAt = DateTime.UtcNow
         };
         
         message.RaiseDomainEvent(new MessageSentDomainEvent(message));

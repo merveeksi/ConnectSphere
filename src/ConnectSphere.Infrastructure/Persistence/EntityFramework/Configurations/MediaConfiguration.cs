@@ -29,7 +29,12 @@ public class MediaConfiguration : IEntityTypeConfiguration<Media>
         builder.Property(x => x.UploadedAt)
             .IsRequired()
             .HasColumnName("uploaded_at")
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            .HasDefaultValue(DateTimeOffset.UtcNow);
+
+        builder.Property(x => x.FileSize)
+            .IsRequired()
+            .HasMaxLength(20)
+            .HasColumnName("file_size");
 
         // Relationships
         builder.HasOne(x => x.UploadedBy)

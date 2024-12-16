@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace ConnectSphere.Domain.Identity;
 
-public class ApplicationUser : IdentityUser<long>, ICreatedByEntity, IModifiedByEntity
+public sealed class ApplicationUser : IdentityUser<long>, ICreatedByEntity, IModifiedByEntity
 {
     public string? FirstName { get; set; }
     public string? LastName { get; set; }

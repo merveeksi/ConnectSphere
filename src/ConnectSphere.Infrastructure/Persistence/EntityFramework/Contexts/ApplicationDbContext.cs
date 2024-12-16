@@ -1,11 +1,14 @@
 using ConnectSphere.Application.Common.Interfaces;
 using ConnectSphere.Domain.Common.Entities;
 using ConnectSphere.Domain.Entities;
+using ConnectSphere.Domain.Identity;
 using MediatR;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Contexts;
-    public class ApplicationDbContext : DbContext, IApplicationDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, long, ApplicationUserClaim, ApplicationUserRole, ApplicationUserLogin, ApplicationRoleClaim, ApplicationUserToken>, IApplicationDbContext
     {
         private readonly IPublisher _publisher;
          public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IPublisher publisher) : base(options)

@@ -29,7 +29,7 @@ public class GroupConfiguration : IEntityTypeConfiguration<Group>
         builder.Property(x => x.CreatedAt)
             .IsRequired()
             .HasColumnName("created_at")
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            .HasDefaultValue(DateTimeOffset.UtcNow);
 
         builder.Property(x => x.CreatedById)
             .IsRequired()

@@ -26,12 +26,13 @@ public class NotificationConfiguration : IEntityTypeConfiguration<Notification>
 
         builder.Property(x => x.IsRead)
             .IsRequired()
-            .HasColumnName("is_read");
+            .HasColumnName("is_read")
+            .HasDefaultValue(false);
 
         builder.Property(x => x.SentAt)
             .IsRequired()
             .HasColumnName("sent_at")
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            .HasDefaultValue(DateTimeOffset.UtcNow);
 
         builder.Property(x => x.NotificationType)
             .HasMaxLength(50)

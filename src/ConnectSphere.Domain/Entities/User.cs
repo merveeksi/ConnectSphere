@@ -13,13 +13,13 @@ public sealed class User : EntityBase<long>
     public string ProfilePictureUrl { get; private set; }
     public DateTime CreatedAt { get; private set; }
     public DateTime? LastLoginAt { get; private set; }
-    public string Role { get; private set; }
-    public bool IsActive { get; private set; }
+    public string Role { get; private set; } = "User";
+    public bool IsActive { get; private set; } = true;
 
     // Navigations
-    public ICollection<Message> Messages { get; private set; } = new List<Message>();
-    public ICollection<Group> Groups { get; private set; } = new List<Group>();
-    public ICollection<Notification> Notifications { get; private set; } = new List<Notification>();
+    public ICollection<Message> Messages { get; private set; } = [];
+    public ICollection<Group> Groups { get; private set; } = [];
+    public ICollection<Notification> Notifications { get; private set; } = [];
 
     public static User Create(UserName username, FullName fullname, Email email, PasswordHash passwordHash, string profilePictureUrl, string role)
     {
@@ -46,7 +46,7 @@ public sealed class User : EntityBase<long>
             ProfilePictureUrl = profilePictureUrl,
             CreatedAt = DateTime.UtcNow,
             IsActive = true,
-            Role = "User"
+            Role = role
         };
 
         return user;
@@ -75,6 +75,7 @@ public sealed class User : EntityBase<long>
 
         IsActive = true;
     }
+
     public void UpdatePassword(string newPassword)
     {
         if (string.IsNullOrWhiteSpace(newPassword))
