@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/ConnectSphere.WebApi.props" />
+</Project>

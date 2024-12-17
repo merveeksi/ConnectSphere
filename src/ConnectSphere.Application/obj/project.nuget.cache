@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bgD2pPCx+Ng=",
+  "dgSpecHash": "Dix8gBqKEu8=",
   "success": true,
   "projectFilePath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/ConnectSphere.Application.csproj",
   "expectedPackageFiles": [
@@ -27,7 +27,9 @@
     "/Users/pc/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
     "/Users/pc/.nuget/packages/stackexchange.redis/2.7.27/stackexchange.redis.2.7.27.nupkg.sha512",
     "/Users/pc/.nuget/packages/system.io.pipelines/5.0.1/system.io.pipelines.5.0.1.nupkg.sha512",
-    "/Users/pc/.nuget/packages/tsid.creator.net/1.0.0/tsid.creator.net.1.0.0.nupkg.sha512"
+    "/Users/pc/.nuget/packages/tsid.creator.net/1.0.0/tsid.creator.net.1.0.0.nupkg.sha512",
+    "/Users/pc/.nuget/packages/microsoft.netcore.app.ref/8.0.11/microsoft.netcore.app.ref.8.0.11.nupkg.sha512",
+    "/Users/pc/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.11/microsoft.aspnetcore.app.ref.8.0.11.nupkg.sha512"
   ],
   "logs": []
 }

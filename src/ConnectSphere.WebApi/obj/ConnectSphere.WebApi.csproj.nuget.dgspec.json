@@ -4,14 +4,104 @@
     "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/ConnectSphere.WebApi.csproj": {}
   },
   "projects": {
-    "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/ConnectSphere.WebApi.csproj": {
+    "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/ConnectSphere.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/ConnectSphere.WebApi.csproj",
-        "projectName": "ConnectSphere.WebApi",
-        "projectPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/ConnectSphere.WebApi.csproj",
+        "projectUniqueName": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/ConnectSphere.Application.csproj",
+        "projectName": "ConnectSphere.Application",
+        "projectPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/ConnectSphere.Application.csproj",
         "packagesPath": "/Users/pc/.nuget/packages/",
-        "outputPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/obj/",
+        "outputPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/pc/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj": {
+                "projectPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.11.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj",
+        "projectName": "ConnectSphere.Domain",
+        "projectPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/ConnectSphere.Domain.csproj",
+        "packagesPath": "/Users/pc/.nuget/packages/",
+        "outputPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/pc/.nuget/NuGet/NuGet.Config"
@@ -43,6 +133,198 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MediatR.Contracts": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "TSID.Creator.NET": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Infrastructure/ConnectSphere.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Infrastructure/ConnectSphere.Infrastructure.csproj",
+        "projectName": "ConnectSphere.Infrastructure",
+        "projectPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Infrastructure/ConnectSphere.Infrastructure.csproj",
+        "packagesPath": "/Users/pc/.nuget/packages/",
+        "outputPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/pc/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/ConnectSphere.Application.csproj": {
+                "projectPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/ConnectSphere.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "EFCore.NamingConventions": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/ConnectSphere.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/ConnectSphere.WebApi.csproj",
+        "projectName": "ConnectSphere.WebApi",
+        "projectPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/ConnectSphere.WebApi.csproj",
+        "packagesPath": "/Users/pc/.nuget/packages/",
+        "outputPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/pc/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Infrastructure/ConnectSphere.Infrastructure.csproj": {
+                "projectPath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Infrastructure/ConnectSphere.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -59,6 +341,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-x64",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -67,7 +363,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

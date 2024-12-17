@@ -27,7 +27,7 @@ public class MessageConfiguration : IEntityTypeConfiguration<Message>
         builder.Property(x => x.SentAt)
             .IsRequired()
             .HasColumnName("sent_at")
-            .HasDefaultValue(DateTimeOffset.UtcNow);
+            .HasDefaultValue(DateTime.UtcNow);
 
         builder.Property(x => x.IsRead)
             .IsRequired()

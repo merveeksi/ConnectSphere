@@ -29,7 +29,7 @@ public class LiveStreamConfiguration : IEntityTypeConfiguration<LiveStream>
         builder.Property(x => x.StartedAt)
             .IsRequired()
             .HasColumnName("started_at")
-            .HasDefaultValue(DateTimeOffset.UtcNow);
+            .HasDefaultValue(DateTime.UtcNow);
 
         builder.Property(x => x.EndedAt)
             .HasColumnName("ended_at");

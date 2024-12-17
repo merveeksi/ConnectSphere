@@ -29,7 +29,7 @@ public class MediaConfiguration : IEntityTypeConfiguration<Media>
         builder.Property(x => x.UploadedAt)
             .IsRequired()
             .HasColumnName("uploaded_at")
-            .HasDefaultValue(DateTimeOffset.UtcNow);
+            .HasDefaultValue(DateTime.UtcNow);
 
         builder.Property(x => x.FileSize)
             .IsRequired()
