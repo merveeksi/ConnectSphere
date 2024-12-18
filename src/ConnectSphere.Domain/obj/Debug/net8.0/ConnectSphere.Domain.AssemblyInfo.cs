@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConnectSphere.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95a223959399565f193c2acac06aed7a286eb1f1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cd8a9c64c3fe1c19c06e5cad9293994b2f477cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConnectSphere.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConnectSphere.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
