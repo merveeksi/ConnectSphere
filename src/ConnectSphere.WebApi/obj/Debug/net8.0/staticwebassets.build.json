@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "gVTzZ0JD9u4agig9EHEvQEvH4b7bQ2uoZGdv+kJGEs4=",
+  "Hash": "Nvrk/tro49sAqjvswOHgeLnYMo+V0nt4kAO6upKRyM4=",
   "Source": "ConnectSphere.WebApi",
   "BasePath": "_content/ConnectSphere.WebApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

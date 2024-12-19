@@ -73,6 +73,6 @@ public class LiveStreamConfiguration : IEntityTypeConfiguration<LiveStream>
 
         // IsActive computed column
         builder.Property(x => x.IsActive)
-            .HasComputedColumnSql("ended_at IS NULL");
+            .HasComputedColumnSql("ended_at IS NULL", stored: true);
     }
 } 

@@ -275,7 +275,10 @@
           "TSID.Creator.NET": "1.0.0"
         },
         "runtime": {
-          "ConnectSphere.Domain.dll": {}
+          "ConnectSphere.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

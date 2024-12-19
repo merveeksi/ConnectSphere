@@ -13,7 +13,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241216164308_InitialCreate")]
+    [Migration("20241219204726_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -39,7 +39,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 12, 16, 16, 43, 7, 923, DateTimeKind.Utc).AddTicks(9510))
+                        .HasDefaultValue(new DateTime(2024, 12, 19, 20, 47, 25, 498, DateTimeKind.Utc).AddTicks(770))
                         .HasColumnName("created_at");
 
                     b.Property<long>("CreatedById")
@@ -86,8 +86,6 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     b.ToTable("groups", null, t =>
                         {
                             t.HasComment("Grup bilgilerini içeren tablo");
-
-                            t.HasCheckConstraint("CK_Group_MinMembers", "EXISTS (SELECT 1 FROM group_members WHERE group_id = id)");
                         });
                 });
 
@@ -122,7 +120,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("boolean")
                         .HasColumnName("is_active")
-                        .HasComputedColumnSql("ended_at IS NULL");
+                        .HasComputedColumnSql("ended_at IS NULL", true);
 
                     b.Property<List<string>>("Messages")
                         .IsRequired()
@@ -145,7 +143,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("StartedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 12, 16, 16, 43, 7, 929, DateTimeKind.Utc).AddTicks(8730))
+                        .HasDefaultValue(new DateTime(2024, 12, 19, 20, 47, 25, 503, DateTimeKind.Utc).AddTicks(4610))
                         .HasColumnName("started_at");
 
                     b.Property<string>("StreamUrl")
@@ -222,7 +220,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("UploadedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 12, 16, 16, 43, 7, 930, DateTimeKind.Utc).AddTicks(9270))
+                        .HasDefaultValue(new DateTime(2024, 12, 19, 20, 47, 25, 504, DateTimeKind.Utc).AddTicks(4160))
                         .HasColumnName("uploaded_at");
 
                     b.Property<long>("UploadedById")
@@ -306,7 +304,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("SentAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 12, 16, 16, 43, 7, 932, DateTimeKind.Utc).AddTicks(2430))
+                        .HasDefaultValue(new DateTime(2024, 12, 19, 20, 47, 25, 505, DateTimeKind.Utc).AddTicks(5600))
                         .HasColumnName("sent_at");
 
                     b.HasKey("Id")
@@ -377,7 +375,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("SentAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 12, 16, 16, 43, 7, 939, DateTimeKind.Utc).AddTicks(310))
+                        .HasDefaultValue(new DateTime(2024, 12, 19, 20, 47, 25, 511, DateTimeKind.Utc).AddTicks(1920))
                         .HasColumnName("sent_at");
 
                     b.Property<long>("UserId")
@@ -412,7 +410,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 12, 16, 16, 43, 7, 945, DateTimeKind.Utc).AddTicks(1850))
+                        .HasDefaultValue(new DateTime(2024, 12, 19, 20, 47, 25, 516, DateTimeKind.Utc).AddTicks(7340))
                         .HasColumnName("created_at");
 
                     b.Property<string>("CreatedByUserId")

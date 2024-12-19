@@ -131,3 +131,6 @@
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/obj/Debug/net8.0/ConnectSphere.WebApi.pdb
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/obj/Debug/net8.0/ConnectSphere.WebApi.genruntimeconfig.cache
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/obj/Debug/net8.0/ref/ConnectSphere.WebApi.dll
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/bin/Debug/net8.0/ConnectSphere.WebApi.staticwebassets.endpoints.json
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/obj/Debug/net8.0/staticwebassets/msbuild.ConnectSphere.WebApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props

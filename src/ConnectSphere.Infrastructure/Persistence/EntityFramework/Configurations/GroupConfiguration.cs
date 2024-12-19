@@ -55,10 +55,6 @@ public class GroupConfiguration : IEntityTypeConfiguration<Group>
             .HasForeignKey(x => x.GroupId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // Validasyon kuralları - PostgreSQL syntax
-        builder.HasCheckConstraint("CK_Group_MinMembers", 
-            "EXISTS (SELECT 1 FROM group_members WHERE group_id = id)");
-
         // İndeksler
         builder.HasIndex(x => x.GroupName)
             .IsUnique()

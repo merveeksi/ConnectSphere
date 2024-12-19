@@ -12,10 +12,8 @@ public sealed class ApplicationUser : IdentityUser<long>, ICreatedByEntity, IMod
     public string? Bio { get; set; }
     public string? Website { get; set; }
     public DateTimeOffset LastOnline { get; set; }
-    
     public DateTimeOffset CreatedOn { get; set; }
     public string? CreatedByUserId { get; set; }
-
     public string? ModifiedByUserId { get; set; }
     public DateTimeOffset? ModifiedOn { get; set; }
 }

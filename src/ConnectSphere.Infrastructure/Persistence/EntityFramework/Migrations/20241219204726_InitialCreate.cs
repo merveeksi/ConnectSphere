@@ -78,7 +78,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     email = table.Column<string>(type: "text", nullable: false),
                     password_hash = table.Column<string>(type: "text", nullable: false),
                     profile_picture_url = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
-                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 16, 16, 43, 7, 945, DateTimeKind.Utc).AddTicks(1850)),
+                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 19, 20, 47, 25, 516, DateTimeKind.Utc).AddTicks(7340)),
                     last_login_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     role = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false, defaultValue: "User"),
                     is_active = table.Column<bool>(type: "boolean", nullable: false, defaultValue: true),
@@ -206,7 +206,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                         .Annotation("Npgsql:IdentitySequenceOptions", "'1', '1', '', '', 'False', '1'")
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn),
                     group_name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 16, 16, 43, 7, 923, DateTimeKind.Utc).AddTicks(9510)),
+                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 19, 20, 47, 25, 498, DateTimeKind.Utc).AddTicks(770)),
                     created_by_id = table.Column<long>(type: "bigint", nullable: false),
                     created_by_user_id = table.Column<string>(type: "text", nullable: false),
                     created_on = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
@@ -216,7 +216,6 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("pk_groups", x => x.id);
-                    table.CheckConstraint("CK_Group_MinMembers", "EXISTS (SELECT 1 FROM group_members WHERE group_id = id)");
                     table.ForeignKey(
                         name: "fk_groups_users_created_by_id",
                         column: x => x.created_by_id,
@@ -236,9 +235,9 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     host_id = table.Column<long>(type: "bigint", nullable: false),
                     title = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
                     stream_url = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
-                    started_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 16, 16, 43, 7, 929, DateTimeKind.Utc).AddTicks(8730)),
+                    started_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 19, 20, 47, 25, 503, DateTimeKind.Utc).AddTicks(4610)),
                     ended_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    is_active = table.Column<bool>(type: "boolean", nullable: false, computedColumnSql: "ended_at IS NULL"),
+                    is_active = table.Column<bool>(type: "boolean", nullable: false, computedColumnSql: "ended_at IS NULL", stored: true),
                     messages = table.Column<List<string>>(type: "jsonb", nullable: false),
                     muted_user_ids = table.Column<HashSet<long>>(type: "jsonb", nullable: false),
                     created_by_user_id = table.Column<string>(type: "text", nullable: false),
@@ -270,7 +269,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     url = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
                     media_type = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     file_size = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
-                    uploaded_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 16, 16, 43, 7, 930, DateTimeKind.Utc).AddTicks(9270)),
+                    uploaded_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 19, 20, 47, 25, 504, DateTimeKind.Utc).AddTicks(4160)),
                     created_by_user_id = table.Column<string>(type: "text", nullable: false),
                     created_on = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     modified_by_user_id = table.Column<string>(type: "text", nullable: true),
@@ -298,7 +297,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     user_id = table.Column<long>(type: "bigint", nullable: false),
                     content = table.Column<string>(type: "text", nullable: false),
                     is_read = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
-                    sent_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 16, 16, 43, 7, 939, DateTimeKind.Utc).AddTicks(310)),
+                    sent_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 19, 20, 47, 25, 511, DateTimeKind.Utc).AddTicks(1920)),
                     notification_type = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     created_by_user_id = table.Column<string>(type: "text", nullable: false),
                     created_on = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
@@ -351,7 +350,7 @@ namespace ConnectSphere.Infrastructure.Persistence.EntityFramework.Migrations
                     sender_id = table.Column<long>(type: "bigint", nullable: false),
                     receiver_id = table.Column<long>(type: "bigint", nullable: false),
                     content = table.Column<string>(type: "text", nullable: false),
-                    sent_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 16, 16, 43, 7, 932, DateTimeKind.Utc).AddTicks(2430)),
+                    sent_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 12, 19, 20, 47, 25, 505, DateTimeKind.Utc).AddTicks(5600)),
                     is_read = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
                     group_id = table.Column<long>(type: "bigint", nullable: true),
                     created_by_user_id = table.Column<string>(type: "text", nullable: false),
