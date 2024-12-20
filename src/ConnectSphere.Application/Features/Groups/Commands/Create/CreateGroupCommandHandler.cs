@@ -8,16 +8,22 @@ public sealed class CreateGroupCommandHandler : IRequestHandler<CreateGroupComma
 {
     private readonly IApplicationDbContext _context;
 
-    public CreateGroupCommandHandler(IApplicationDbContext context)
+    private readonly ICacheInvalidator _cacheInvalidator;
+    public CreateGroupCommandHandler(IApplicationDbContext context, ICacheInvalidator cacheInvalidator)
     {
         _context = context;
+        _cacheInvalidator = cacheInvalidator;
     }
-
     public async Task<long> Handle(CreateGroupCommand request, CancellationToken cancellationToken)
     {
         var group = Group.Create(request.GroupName, request.CreatedById);
+        
         _context.Groups.Add(group);
+        
         await _context.SaveChangesAsync(cancellationToken);
+        
+        await _cacheInvalidator.InvalidateGroupAsync("Groups", cancellationToken);
+        
         return group.Id;
     }
 }
