@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConnectSphere.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f88664b43e8f13b32f5a93faa215aa7d67351d3f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a63b87f9ad17bfaecc7072513a64df3eaa3e0c3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConnectSphere.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConnectSphere.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

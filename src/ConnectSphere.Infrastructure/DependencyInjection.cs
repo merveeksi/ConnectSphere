@@ -2,6 +2,7 @@ using ConnectSphere.Application.Common.Interfaces;
 using ConnectSphere.Domain.Settings;
 using ConnectSphere.Infrastructure.Persistence.EntityFramework.Contexts;
 using ConnectSphere.Infrastructure.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,21 @@ public static class DependencyInjection
 
         // JWT Authentication
         ConfigureJwtSettings(services, configuration);
+        
+        services.AddScoped<IJwtService, JwtManager>();
+        services.AddScoped<IIdentityService, IdentityManager>();
+        services.AddIdentity<AppUser, Role>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequiredLength = 6;
+            })
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
         
         services.AddStackExchangeRedisCache(options =>
         {
