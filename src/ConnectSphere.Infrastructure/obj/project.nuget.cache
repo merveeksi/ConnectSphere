@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Ifpkt377nac=",
+  "dgSpecHash": "hnmP916MpXI=",
   "success": true,
   "projectFilePath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Infrastructure/ConnectSphere.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -53,6 +53,7 @@
     "/Users/pc/.nuget/packages/npgsql/8.0.6/npgsql.8.0.6.nupkg.sha512",
     "/Users/pc/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.11/npgsql.entityframeworkcore.postgresql.8.0.11.nupkg.sha512",
     "/Users/pc/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "/Users/pc/.nuget/packages/resend/0.0.10/resend.0.0.10.nupkg.sha512",
     "/Users/pc/.nuget/packages/stackexchange.redis/2.7.27/stackexchange.redis.2.7.27.nupkg.sha512",
     "/Users/pc/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/pc/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",

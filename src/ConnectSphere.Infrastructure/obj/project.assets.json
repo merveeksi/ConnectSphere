@@ -1015,6 +1015,22 @@
           }
         }
       },
+      "Resend/0.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Options": "7.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Resend.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Resend.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "StackExchange.Redis/2.7.27": {
         "type": "package",
         "dependencies": {
@@ -2918,6 +2934,21 @@
         "pipelines.sockets.unofficial.nuspec"
       ]
     },
+    "Resend/0.0.10": {
+      "sha512": "FZm8cF1hqUcvWE3M7SPg8HUg6/FTocbI9cPQJXmZH3Oqc6x01RJMQyFDvcGjIaG8397MDugNYg9yGY23fzSNwA==",
+      "type": "package",
+      "path": "resend/0.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net8.0/Resend.dll",
+        "lib/net8.0/Resend.xml",
+        "resend.0.0.10.nupkg.sha512",
+        "resend.nuspec"
+      ]
+    },
     "StackExchange.Redis/2.7.27": {
       "sha512": "Uqc2OQHglqj9/FfGQ6RkKFkZfHySfZlfmbCl+hc+u2I/IqunfelQ7QJi7ZhvAJxUtu80pildVX6NPLdDaUffOw==",
       "type": "package",
@@ -3316,6 +3347,7 @@
       "Microsoft.Extensions.Configuration.Json >= 8.0.1",
       "Microsoft.IdentityModel.Tokens >= 8.3.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.11",
+      "Resend >= 0.0.10",
       "System.IdentityModel.Tokens.Jwt >= 8.3.0"
     ]
   },
@@ -3403,6 +3435,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
             "version": "[8.0.11, )"
+          },
+          "Resend": {
+            "target": "Package",
+            "version": "[0.0.10, )"
           },
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",

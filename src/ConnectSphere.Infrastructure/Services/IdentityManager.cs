@@ -70,7 +70,7 @@ public sealed class IdentityManager : IIdentityService
         // E-posta onaylama jetonu oluştur.
         var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
         // Kayıt yanıtını döndür.
-        return new IdentityRegisterResponse(userId, emailToken);
+        return new IdentityRegisterResponse(userId, user.Email, emailToken);
     }
     // Doğrulama hatası oluşturur ve fırlatır.
     private void CreateAndThrowValidationException(IEnumerable<IdentityError> errors)

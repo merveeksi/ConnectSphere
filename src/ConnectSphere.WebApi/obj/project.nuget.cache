@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bEMHSD/O/Eg=",
+  "dgSpecHash": "o4FVLGHUFKc=",
   "success": true,
   "projectFilePath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/ConnectSphere.WebApi.csproj",
   "expectedPackageFiles": [
@@ -58,6 +58,7 @@
     "/Users/pc/.nuget/packages/npgsql/8.0.6/npgsql.8.0.6.nupkg.sha512",
     "/Users/pc/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.11/npgsql.entityframeworkcore.postgresql.8.0.11.nupkg.sha512",
     "/Users/pc/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "/Users/pc/.nuget/packages/resend/0.0.10/resend.0.0.10.nupkg.sha512",
     "/Users/pc/.nuget/packages/stackexchange.redis/2.7.27/stackexchange.redis.2.7.27.nupkg.sha512",
     "/Users/pc/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "/Users/pc/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",

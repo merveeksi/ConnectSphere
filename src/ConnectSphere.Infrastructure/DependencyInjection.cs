@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Resend;
 using StackExchange.Redis;
 
 namespace ConnectSphere.Infrastructure;
@@ -30,6 +31,7 @@ public static class DependencyInjection
         
         services.AddScoped<IJwtService, JwtManager>();
         services.AddScoped<IIdentityService, IdentityManager>();
+        services.AddScoped<IEmailService, ResendEmailManager>();
         services.AddIdentity<AppUser, Role>(options =>
             {
                 options.User.RequireUniqueEmail = true;
@@ -61,6 +63,12 @@ public static class DependencyInjection
 
        // services.Configure<S3Settings>(bind => configuration.GetSection("S3Settings").Bind(bind));
             
+       // Resend
+       services.AddOptions();
+       services.AddHttpClient<ResendClient>();
+       services.Configure<ResendClientOptions>(o => o.ApiToken = configuration.GetSection("ResendApiKey").Value!);
+       services.AddTransient<IResend, ResendClient>();
+
         return services;
     }
 

@@ -260,6 +260,10 @@
               "target": "Package",
               "version": "[8.0.11, )"
             },
+            "Resend": {
+              "target": "Package",
+              "version": "[0.0.10, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[8.3.0, )"
