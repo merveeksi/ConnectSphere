@@ -1,4 +1,5 @@
 using ConnectSphere.Application.Common.Interfaces;
+using ConnectSphere.Domain.Identity;
 using ConnectSphere.Domain.Settings;
 using ConnectSphere.Infrastructure.Persistence.EntityFramework.Contexts;
 using ConnectSphere.Infrastructure.Services;
@@ -32,7 +33,7 @@ public static class DependencyInjection
         services.AddScoped<IJwtService, JwtManager>();
         services.AddScoped<IIdentityService, IdentityManager>();
         services.AddScoped<IEmailService, ResendEmailManager>();
-        services.AddIdentity<AppUser, Role>(options =>
+        services.AddIdentity<ApplicationUser, Role>(options =>
             {
                 options.User.RequireUniqueEmail = true;
                 options.Password.RequireNonAlphanumeric = false;

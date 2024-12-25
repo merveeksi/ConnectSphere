@@ -1,21 +1,26 @@
+using System.Web;
 using ConnectSphere.Application.Common.Interfaces;
 using ConnectSphere.Application.Common.Models.Identity;
 using ConnectSphere.Application.Common.Models.Jwt;
+using ConnectSphere.Domain.Identity;
 using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConnectSphere.Infrastructure.Services;
 
 public sealed class IdentityManager : IIdentityService
 {
-    private readonly UserManager<AppUser> _userManager;
+    private readonly UserManager<ApplicationUser> _userManager;
     private readonly IJwtService _jwtService;
+    private readonly IApplicationDbContext _context;
 
-    public IdentityManager(UserManager<AppUser> userManager, IJwtService jwtService)
+    public IdentityManager(UserManager<ApplicationUser> userManager, IJwtService jwtService, IApplicationDbContext context)
     {
         _userManager = userManager;
         _jwtService = jwtService;
+        _context = context;
     }
 
     // This method is used to authenticate a user
@@ -26,6 +31,11 @@ public sealed class IdentityManager : IIdentityService
         return await _userManager.CheckPasswordAsync(user, request.Password);
     }
 
+    public Task<IdentityRefreshTokenResponse> RefreshTokenAsync(IdentityRefreshTokenRequest request, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
+
     // E-posta adresinin veritabanında olup olmadığını kontrol eder.
     public Task<bool> CheckEmailExistsAsync(string email, CancellationToken cancellationToken)
     {
@@ -33,6 +43,26 @@ public sealed class IdentityManager : IIdentityService
             .Users
             .AnyAsync(x => x.Email == email, cancellationToken);
     }
+    
+    public Task<bool> CheckIfEmailVerifiedAsync(string email, CancellationToken cancellationToken)
+    {
+        return _userManager
+            .Users
+            .AnyAsync(x => x.Email == email && x.EmailConfirmed, cancellationToken);
+    }
+
+    public Task<bool> CheckSecurityStampAsync(Guid userId, string securityStamp, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<IdentityCreateEmailTokenResponse> CreateEmailTokenAsync(IdentityCreateEmailTokenRequest request, CancellationToken cancellationToken)
+    {
+        var user = await _userManager.FindByEmailAsync(request.Email);
+        var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        return new IdentityCreateEmailTokenResponse(token);
+    }
+
 
     public async Task<IdentityLoginResponse> LoginAsync(IdentityLoginRequest request,
         CancellationToken cancellationToken)
@@ -44,6 +74,16 @@ public sealed class IdentityManager : IIdentityService
         return new IdentityLoginResponse(jwtResponse.Token, jwtResponse.ExpiresAt);
     }
     
+    public async Task<IdentityVerifyEmailResponse> VerifyEmailAsync(IdentityVerifyEmailRequest request, CancellationToken cancellationToken)
+    {
+        var user = await _userManager.FindByEmailAsync(request.Email);
+        var decodedToken = HttpUtility.UrlDecode(request.Token);
+        var result = await _userManager.ConfirmEmailAsync(user, decodedToken);
+        if (!result.Succeeded)
+            CreateAndThrowValidationException(result.Errors);
+        return new IdentityVerifyEmailResponse(user.Email);
+    }
+    
     // Yeni bir kullanıcı kaydeder.
     public async Task<IdentityRegisterResponse> RegisterAsync(IdentityRegisterRequest request, CancellationToken cancellationToken)
     {
@@ -52,7 +92,7 @@ public sealed class IdentityManager : IIdentityService
             .NewUlid()
             .ToGuid();
         // Yeni bir kullanıcı nesnesi oluştur.
-        var user = new AppUser
+        var user = new ApplicationUser
         {
             Id = userId,
             Email = request.Email,

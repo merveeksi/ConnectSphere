@@ -1,5 +1,6 @@
 using ConnectSphere.Application.Features.Auth.Commands.Login;
 using ConnectSphere.Application.Features.Auth.Commands.Register;
+using ConnectSphere.Application.Features.Auth.Commands.ResedEmail.VerificationEmail;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,5 +18,12 @@ public class AuthController : ApiControllerBase
 
     [HttpPost("register")]
     public async Task<IActionResult> Register(AuthRegisterCommand command, CancellationToken cancellationToken)
+        => Ok(await Mediatr.Send(command, cancellationToken));
+    
+    [HttpPost("verify-email")]
+    public async Task<IActionResult> VerifyEmail(AuthVerifyEmailCommand command, CancellationToken cancellationToken)
+        => Ok(await Mediatr.Send(command, cancellationToken));
+    [HttpPost("resend-email-verification")]
+    public async Task<IActionResult> ResendEmailVerification(AuthReSendEmailVerificationEmailCommand command, CancellationToken cancellationToken)
         => Ok(await Mediatr.Send(command, cancellationToken));
 }
