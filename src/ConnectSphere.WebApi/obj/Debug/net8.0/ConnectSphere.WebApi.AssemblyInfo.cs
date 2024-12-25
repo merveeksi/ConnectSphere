@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConnectSphere.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb5220194624655e7b2a8e0de4227d9864ab1812")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f88664b43e8f13b32f5a93faa215aa7d67351d3f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConnectSphere.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConnectSphere.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
