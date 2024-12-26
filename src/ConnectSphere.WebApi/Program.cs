@@ -19,6 +19,8 @@ builder.Services.AddWebApi(builder.Configuration, builder.Environment);
 
 var app = builder.Build();
 
+app.UseCors("AllowAll");
+
 Func<IServiceProvider, object> EnvironmentManager(string webRootPath)
 {
     throw new NotImplementedException();

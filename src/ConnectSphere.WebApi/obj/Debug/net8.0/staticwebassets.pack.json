@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/wwwroot/email-templates/email-verification-template.html",
+      "PackagePath": "staticwebassets/email-templates/email-verification-template.html"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.ConnectSphere.WebApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.ConnectSphere.WebApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.ConnectSphere.WebApi.props",
+      "PackagePath": "build\\ConnectSphere.WebApi.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.ConnectSphere.WebApi.props",
+      "PackagePath": "buildMultiTargeting\\ConnectSphere.WebApi.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.ConnectSphere.WebApi.props",
+      "PackagePath": "buildTransitive\\ConnectSphere.WebApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

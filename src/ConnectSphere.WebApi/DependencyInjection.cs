@@ -12,6 +12,15 @@ public static class DependencyInjection
     public static IServiceCollection AddWebApi(this IServiceCollection services, IConfiguration configuration,
         IWebHostEnvironment environment)
     {
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll",
+                builder => builder
+                    .AllowAnyMethod()
+                    .AllowCredentials()
+                    .SetIsOriginAllowed((host) => true)
+                    .AllowAnyHeader());
+        });
 
         services.AddSingleton<IEnvironmentService, EnvironmentManager>(sp =>
             new EnvironmentManager(environment.WebRootPath));

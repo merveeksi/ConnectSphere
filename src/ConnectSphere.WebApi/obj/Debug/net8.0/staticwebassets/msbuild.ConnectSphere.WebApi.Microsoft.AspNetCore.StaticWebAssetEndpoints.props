@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/ConnectSphere.WebApi/email-templates/email-verification-template.0m6ybatj7r.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\email-templates\email-verification-template.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"0m6ybatj7r"},{"Name":"integrity","Value":"sha256-CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc="},{"Name":"label","Value":"_content/ConnectSphere.WebApi/email-templates/email-verification-template.html"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3857"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc=\u0022"},{"Name":"Last-Modified","Value":"Wed, 25 Dec 2024 20:50:54 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ConnectSphere.WebApi/email-templates/email-verification-template.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\email-templates\email-verification-template.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3857"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc=\u0022"},{"Name":"Last-Modified","Value":"Wed, 25 Dec 2024 20:50:54 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>
