@@ -14,17 +14,17 @@
 /Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/refint/ConnectSphere.Application.dll
 /Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.pdb
 /Users/pc/Desktop/untitled folder/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ref/ConnectSphere.Application.dll
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/bin/Debug/net8.0/ConnectSphere.Application.deps.json
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/bin/Debug/net8.0/ConnectSphere.Application.dll
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/bin/Debug/net8.0/ConnectSphere.Application.pdb
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/bin/Debug/net8.0/ConnectSphere.Domain.dll
+/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/bin/Debug/net8.0/ConnectSphere.Domain.pdb
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.csproj.AssemblyReference.cache
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.GeneratedMSBuildEditorConfig.editorconfig
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.AssemblyInfoInputs.cache
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.AssemblyInfo.cs
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.csproj.CoreCompileInputs.cache
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.sourcelink.json
-/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/bin/Debug/net8.0/ConnectSphere.Application.deps.json
-/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/bin/Debug/net8.0/ConnectSphere.Application.dll
-/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/bin/Debug/net8.0/ConnectSphere.Application.pdb
-/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/bin/Debug/net8.0/ConnectSphere.Domain.dll
-/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/bin/Debug/net8.0/ConnectSphere.Domain.pdb
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectS.45D2B17E.Up2Date
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/ConnectSphere.Application.dll
 /Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Application/obj/Debug/net8.0/refint/ConnectSphere.Application.dll

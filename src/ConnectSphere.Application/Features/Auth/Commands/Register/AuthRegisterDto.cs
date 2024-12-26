@@ -4,9 +4,9 @@ namespace ConnectSphere.Application.Features.Auth.Commands.Register;
 
 public sealed class AuthRegisterDto
 {
-    public Guid UserId { get; set; }
+    public long UserId { get; set; }
     public string EmailToken { get; set; }
-    public AuthRegisterDto(Guid userId, string emailToken)
+    public AuthRegisterDto(long userId, string emailToken)
     {
         UserId = userId;
         EmailToken = emailToken;

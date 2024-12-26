@@ -6,13 +6,13 @@ public interface IIdentityService
 {
     Task<bool> AuthenticateAsync(IdentityAuthenticateRequest request, CancellationToken cancellationToken);
 
-    Task<IdentityRefreshTokenResponse> RefreshTokenAsync(IdentityRefreshTokenRequest request, CancellationToken cancellationToken);
+   // Task<IdentityRefreshTokenResponse> RefreshTokenAsync(IdentityRefreshTokenRequest request, CancellationToken cancellationToken);
 
     Task<bool> CheckEmailExistsAsync(string email, CancellationToken cancellationToken);
 
     Task<bool> CheckIfEmailVerifiedAsync(string email, CancellationToken cancellationToken);
 
-    Task<bool> CheckSecurityStampAsync(Guid userId, string securityStamp, CancellationToken cancellationToken);
+    Task<bool> CheckSecurityStampAsync(long userId, string securityStamp, CancellationToken cancellationToken);
 
     Task<IdentityRegisterResponse> RegisterAsync(IdentityRegisterRequest request, CancellationToken cancellationToken);
     Task<IdentityLoginResponse> LoginAsync(IdentityLoginRequest request, CancellationToken cancellationToken);

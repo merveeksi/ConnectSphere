@@ -1,5 +1,6 @@
 using ConnectSphere.Application.Common.Interfaces;
 using ConnectSphere.Application.Common.Models.Email;
+using ConnectSphere.Application.Common.Models.General;
 using MediatR;
 
 namespace ConnectSphere.Application.Features.Auth.Commands.Register;

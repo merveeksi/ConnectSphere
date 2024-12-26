@@ -1,3 +1,4 @@
+using ConnectSphere.Application.Common.Models.General;
 using MediatR;
 
 namespace ConnectSphere.Application.Features.Auth.Commands.ResedEmail.VerificationEmail;

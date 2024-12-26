@@ -1,5 +1,7 @@
 using ConnectSphere.Application.Common.Interfaces;
+using ConnectSphere.Application.Common.Models.General;
 using ConnectSphere.Application.Common.Models.Identity;
+using ConnectSphere.Application.Features.Auth.Commands.VerifyEmail;
 using MediatR;
 
 namespace ConnectSphere.Application.Features.Auth.VerifyEmail;

@@ -1,6 +1,7 @@
 using ConnectSphere.Application.Features.Auth.Commands.Login;
 using ConnectSphere.Application.Features.Auth.Commands.Register;
 using ConnectSphere.Application.Features.Auth.Commands.ResedEmail.VerificationEmail;
+using ConnectSphere.Application.Features.Auth.Commands.VerifyEmail;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

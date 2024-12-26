@@ -1,8 +1,9 @@
+using ConnectSphere.Application.Common.Models.General;
 using MediatR;
 
-namespace ConnectSphere.Application.Features.Auth.VerifyEmail;
+namespace ConnectSphere.Application.Features.Auth.Commands.VerifyEmail;
 
-public sealed class : IRequest<ResponseDto<string>>
+public sealed class AuthVerifyEmailCommand : IRequest<ResponseDto<string>>
 {
     public string Email { get; set; }
     public string Token { get; set; }
@@ -12,4 +13,5 @@ public sealed class : IRequest<ResponseDto<string>>
         Email = email;
         Token = token;
     }
+
 }

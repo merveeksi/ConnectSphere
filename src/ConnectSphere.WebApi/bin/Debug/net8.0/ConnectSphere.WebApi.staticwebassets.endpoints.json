@@ -1,5 +1,88 @@
 {
   "Version": 1,
   "ManifestType": "Build",
-  "Endpoints": []
+  "Endpoints": [
+    {
+      "Route": "email-templates/email-verification-template.0m6ybatj7r.html",
+      "AssetFile": "email-templates/email-verification-template.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3857"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 25 Dec 2024 20:50:54 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0m6ybatj7r"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc="
+        },
+        {
+          "Name": "label",
+          "Value": "email-templates/email-verification-template.html"
+        }
+      ]
+    },
+    {
+      "Route": "email-templates/email-verification-template.html",
+      "AssetFile": "email-templates/email-verification-template.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3857"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 25 Dec 2024 20:50:54 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc="
+        }
+      ]
+    }
+  ]
 }

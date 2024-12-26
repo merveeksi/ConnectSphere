@@ -1,12 +1,125 @@
 {
   "Version": 1,
-  "Hash": "Nvrk/tro49sAqjvswOHgeLnYMo+V0nt4kAO6upKRyM4=",
+  "Hash": "IKFnXtgsEEtd1dpRVyWWgKQFccAIhV7edvraEYBru2I=",
   "Source": "ConnectSphere.WebApi",
   "BasePath": "_content/ConnectSphere.WebApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "ConnectSphere.WebApi/wwwroot",
+      "Source": "ConnectSphere.WebApi",
+      "ContentRoot": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/wwwroot/",
+      "BasePath": "_content/ConnectSphere.WebApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/wwwroot/email-templates/email-verification-template.html",
+      "SourceId": "ConnectSphere.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/wwwroot/",
+      "BasePath": "_content/ConnectSphere.WebApi",
+      "RelativePath": "email-templates/email-verification-template#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0m6ybatj7r",
+      "Integrity": "CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/email-templates/email-verification-template.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "email-templates/email-verification-template.0m6ybatj7r.html",
+      "AssetFile": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/wwwroot/email-templates/email-verification-template.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3857"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 25 Dec 2024 20:50:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0m6ybatj7r"
+        },
+        {
+          "Name": "label",
+          "Value": "email-templates/email-verification-template.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc="
+        }
+      ]
+    },
+    {
+      "Route": "email-templates/email-verification-template.html",
+      "AssetFile": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.WebApi/wwwroot/email-templates/email-verification-template.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3857"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 25 Dec 2024 20:50:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CMc8lKBQekn2K1wgYvJEvON7HbcaBp5NEjrcx/IJ7uc="
+        }
+      ]
+    }
+  ]
 }

@@ -31,10 +31,10 @@ public sealed class IdentityManager : IIdentityService
         return await _userManager.CheckPasswordAsync(user, request.Password);
     }
 
-    public Task<IdentityRefreshTokenResponse> RefreshTokenAsync(IdentityRefreshTokenRequest request, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
-    }
+    // public Task<IdentityRefreshTokenResponse> RefreshTokenAsync(IdentityRefreshTokenRequest request, CancellationToken cancellationToken)
+    // {
+    //     throw new NotImplementedException();
+    // }
 
     // E-posta adresinin veritabanında olup olmadığını kontrol eder.
     public Task<bool> CheckEmailExistsAsync(string email, CancellationToken cancellationToken)
@@ -51,7 +51,7 @@ public sealed class IdentityManager : IIdentityService
             .AnyAsync(x => x.Email == email && x.EmailConfirmed, cancellationToken);
     }
 
-    public Task<bool> CheckSecurityStampAsync(Guid userId, string securityStamp, CancellationToken cancellationToken)
+    public Task<bool> CheckSecurityStampAsync(long userId, string securityStamp, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }
@@ -88,9 +88,12 @@ public sealed class IdentityManager : IIdentityService
     public async Task<IdentityRegisterResponse> RegisterAsync(IdentityRegisterRequest request, CancellationToken cancellationToken)
     {
         // Yeni bir kullanıcı kimliği oluştur.
-        var userId = Ulid
-            .NewUlid()
-            .ToGuid();
+        long userId = BitConverter
+            .ToInt64(Ulid
+                .NewUlid()
+                .ToByteArray()
+                , 0);
+        
         // Yeni bir kullanıcı nesnesi oluştur.
         var user = new ApplicationUser
         {
@@ -112,6 +115,7 @@ public sealed class IdentityManager : IIdentityService
         // Kayıt yanıtını döndür.
         return new IdentityRegisterResponse(userId, user.Email, emailToken);
     }
+    
     // Doğrulama hatası oluşturur ve fırlatır.
     private void CreateAndThrowValidationException(IEnumerable<IdentityError> errors)
     {

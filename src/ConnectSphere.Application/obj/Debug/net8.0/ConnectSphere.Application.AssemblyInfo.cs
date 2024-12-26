@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConnectSphere.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae3bfaed4a33111f83d4743838ce0fcc8a8cf93a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e99e4d2cbbac6136dd245c3a4840aa7eeafe494f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConnectSphere.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConnectSphere.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
