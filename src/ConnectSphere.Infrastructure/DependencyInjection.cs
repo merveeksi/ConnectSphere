@@ -1,6 +1,7 @@
 using ConnectSphere.Application.Common.Interfaces;
 using ConnectSphere.Domain.Identity;
 using ConnectSphere.Domain.Settings;
+using ConnectSphere.Infrastructure.Persistence.EntityFramework.Configurations;
 using ConnectSphere.Infrastructure.Persistence.EntityFramework.Contexts;
 using ConnectSphere.Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
@@ -69,6 +70,9 @@ public static class DependencyInjection
        services.AddHttpClient<ResendClient>();
        services.Configure<ResendClientOptions>(o => o.ApiToken = configuration.GetSection("ResendApiKey").Value!);
        services.AddTransient<IResend, ResendClient>();
+       
+         // Rate limiting
+       services.AddRateLimitServices(configuration);
 
         return services;
     }

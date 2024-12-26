@@ -1,3 +1,4 @@
+using AspNetCoreRateLimit;
 using ConnectSphere.Application;
 using ConnectSphere.Infrastructure;
 using ConnectSphere.WebApi;
@@ -32,6 +33,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseIpRateLimiting(); // Rate limiting middleware
 
 app.UseHttpsRedirection();
 

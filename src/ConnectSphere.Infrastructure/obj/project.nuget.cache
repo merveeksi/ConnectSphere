@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RarUBU/CRCA=",
+  "dgSpecHash": "t3B1ePoBdUA=",
   "success": true,
   "projectFilePath": "/Users/pc/Desktop/ConnectSphere/src/ConnectSphere.Infrastructure/ConnectSphere.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "/Users/pc/.nuget/packages/aspnetcoreratelimit/5.0.0/aspnetcoreratelimit.5.0.0.nupkg.sha512",
     "/Users/pc/.nuget/packages/efcore.namingconventions/8.0.3/efcore.namingconventions.8.0.3.nupkg.sha512",
     "/Users/pc/.nuget/packages/fluentvalidation/11.11.0/fluentvalidation.11.11.0.nupkg.sha512",
     "/Users/pc/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.11.0/fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
@@ -50,6 +51,7 @@
     "/Users/pc/.nuget/packages/microsoft.identitymodel.logging/8.3.0/microsoft.identitymodel.logging.8.3.0.nupkg.sha512",
     "/Users/pc/.nuget/packages/microsoft.identitymodel.tokens/8.3.0/microsoft.identitymodel.tokens.8.3.0.nupkg.sha512",
     "/Users/pc/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/Users/pc/.nuget/packages/newtonsoft.json/13.0.2/newtonsoft.json.13.0.2.nupkg.sha512",
     "/Users/pc/.nuget/packages/npgsql/8.0.6/npgsql.8.0.6.nupkg.sha512",
     "/Users/pc/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.11/npgsql.entityframeworkcore.postgresql.8.0.11.nupkg.sha512",
     "/Users/pc/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
