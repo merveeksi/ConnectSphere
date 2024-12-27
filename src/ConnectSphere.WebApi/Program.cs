@@ -1,6 +1,7 @@
 using AspNetCoreRateLimit;
 using ConnectSphere.Application;
 using ConnectSphere.Infrastructure;
+using ConnectSphere.Infrastructure.Services;
 using ConnectSphere.WebApi;
 using ConnectSphere.WebApi.Extensions;
 
@@ -17,6 +18,8 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddWebApi(builder.Configuration, builder.Environment);
+
+builder.Services.AddHostedService<StoryCleanupService>();
 
 var app = builder.Build();
 
