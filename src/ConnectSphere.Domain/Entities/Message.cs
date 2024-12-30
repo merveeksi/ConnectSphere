@@ -14,7 +14,7 @@ public sealed class Message : EntityBase<long>
     public bool IsRead { get; private set; } = false; // Mesaj okunma durumu, varsayılan false
 
     // Navigations
-    public User Sender { get; private set; }
+    public User Sender { get; private set; } 
     public User Receiver { get; private set; }
     public long? GroupId { get; private set; } // Grup ID (null ise birebir mesajdır)
     public Group Group { get; private set; }

@@ -5,7 +5,7 @@ using ConnectSphere.Domain.Identity;
 
 namespace ConnectSphere.Domain.Entities
 {
-    public class Story : EntityBase<long>
+    public sealed class Story : EntityBase<long>
     {
         public Story(string content, string mediaUrl, StoryType type, DateTime expirationTime, long userId, ApplicationUser user)
         {
@@ -29,5 +29,11 @@ namespace ConnectSphere.Domain.Entities
         public long UserId { get; set; }
         public ApplicationUser User { get; set; }
         public bool IsExpired => DateTime.UtcNow >= ExpirationTime; // Hikaye süresi dolmuş mu?
+
+        public static Story Create(string content, string mediaUrl, StoryType type, DateTime expirationTime, long userId, ApplicationUser user)
+        {
+            return new Story(content, mediaUrl, type, expirationTime, userId, user);
+        }
     }
+   
 } 

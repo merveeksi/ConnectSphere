@@ -7,6 +7,7 @@ public sealed class Post : EntityBase<long>
 {
     public string Title { get; set; }
     public string Content { get; set; }
+    public long AuthorId { get; set; }
     public PostType Type { get; set; }
     public bool IsActive { get; set; }
     

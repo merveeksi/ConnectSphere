@@ -19,4 +19,9 @@ public sealed class RoomCategory : EntityBase<long>
         public string Name { get; private set; }
         public string Description { get; private set; }
         public List<ChatRoom> ChatRooms { get; private set; }
+
+        public static RoomCategory Create(string name, string description)
+        {
+            return new RoomCategory(name, description, new List<ChatRoom>());
+        }
 }

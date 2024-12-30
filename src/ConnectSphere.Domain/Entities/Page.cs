@@ -23,4 +23,9 @@ public sealed class Page : EntityBase<long>
         Description = description;
         Url = url;
     }
+
+    public static Page Create(string title, string description, string url)
+    {
+        return new Page(0, title, description, url);
+    }
 } 

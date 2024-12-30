@@ -14,4 +14,9 @@ public sealed class RoomTag : EntityBase<long>
     public long RoomId { get; private set; }
     public string Tag { get; private set; }
     public ChatRoom ChatRoom { get; private set; }
+
+    public static RoomTag Create(long roomId, string tag, ChatRoom chatRoom)
+    {
+        return new RoomTag(roomId, tag, chatRoom);
+    }
 }
